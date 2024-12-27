@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Bok_try',
+    'home',
+    
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
