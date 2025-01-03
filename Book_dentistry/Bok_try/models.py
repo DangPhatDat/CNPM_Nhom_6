@@ -8,3 +8,5 @@ class ExampleModel(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     new_field = models.IntegerField(default=0)  # Thêm trường mới
+
+
