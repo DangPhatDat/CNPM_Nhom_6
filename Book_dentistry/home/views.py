@@ -32,4 +32,23 @@ def login(request):
     }
     return HttpResponse (template.render(context, request))
 
+def customer(request):
+    if request.method == "POST":
+        pass
 
+    template = loader.get_template('home/customer.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+
+def tao_lich_hen(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/tao_lich_hen.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
