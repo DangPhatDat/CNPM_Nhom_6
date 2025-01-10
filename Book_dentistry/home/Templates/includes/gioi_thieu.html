@@ -1,0 +1,99 @@
+<html>
+ <head>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <style>
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .breadcrumb {
+            background-color: #f5f5d5;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .text {
+            flex: 1 1 45%;
+            margin-bottom: 20px;
+        }
+        .image {
+            flex: 1 1 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+            }
+            .text, .image {
+                flex: 1 1 100%;
+            }
+        }
+  </style>
+ </head>
+ <body>
+    <div class="breadcrumb">
+        <a href="#">
+         Trang Chủ
+        </a>
+        <span>
+         &gt;
+        </span>
+        <a href="#">
+         Giới Thiệu
+        </a>
+       </div>
+  <div class="content">
+   <div class="section">
+    <div class="text">
+     <p>
+      Giới thiệu về Nha Khoa Minh Hiệp
+      <br/>
+      
+     </p>
+    </div>
+    <div class="image">
+     <img src="https://storage.googleapis.com/a1aa/image/Ac8fjhVXU4UdK6jty8QKQ2N1JDnNAofbAEMeDA1GD0AesCHQB.jpg" height="200" src="https://placehold.co/300x200" width="300"/>
+    </div>
+   </div>
+   <div class="section">
+    <div class="image">
+     <img alt="Placeholder image with abstract shapes" height="200" src="https://placehold.co/300x200" width="300"/>
+    </div>
+    <div class="text">
+     <p>
+        Giới thiệu về Nha Khoa Minh Hiệp
+      <br/>
+      
+    </div>
+   </div>
+   <div class="section">
+    <div class="text">
+     <p>
+        Giới thiệu Nha Khoa Minh Hiệp 
+      <br/>
+      
+     </p>
+    </div>
+    <div class="image">
+     <img alt="Placeholder image with abstract shapes" height="200" src="https://placehold.co/300x200" width="300"/>
+    </div>
+   </div>
+  </div>
+ </body>
+</html> 
