@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 
- {%block container%}
+{%block container%}
     <div class="container-xxl flex-grow-1 container-p-y">
       <div class ="row">
         <div class="col-xxl">
@@ -53,9 +53,9 @@
         </div>
       <div>
     </div>
-    {%endblock%} 
+    {%endblock%}
 
-
-{% comment %} {%block content%}
-  {% include 'includes/container.html' %}
-{%endblock%}  {% endcomment %}
+{% comment %} 
+{%block content%}
+    {% include '../includes/menu.html' %}
+{%endblock%} {% endcomment %}

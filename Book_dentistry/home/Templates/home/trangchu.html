@@ -1,0 +1,269 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Nha Khoa Minh Hiệp
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    /* Đầu */
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color:rgb(60, 121, 234);
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 90px;
+        }
+        .header .logo img {
+            width: 180px;
+            height: 80px;
+            margin-right: 10px;
+        }
+        .header .logo span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            align-items: center;
+        }
+        .header .nav a {
+            text-decoration: none;
+            color: black;
+            background-color:rgb(139, 186, 230);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .header .nav a i {
+            margin-right: 5px;
+        }
+        .header .contact {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .header .nav a:hover {
+            background-color:rgb(255, 255, 255);
+        }
+        .header .contact a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .main-image {
+            width: 100%;
+            height: 80%;
+        }
+        .main-content {
+            text-align: center;
+            padding: 20px;
+        }
+        .main-content h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .main-content p {
+            font-size: 20px;
+            margin: 10px 0 0;
+        }
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: black;
+            margin: 5px 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgb(0, 0, 0);
+        }
+        /* Đuôi */
+        .footer {
+            background-color:rgb(37, 142, 240);
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+        .footer .info {
+            display: inline-block;
+            text-align: left;
+            margin-right: 500px;
+        }
+        .footer .info img {
+            width: 50px;
+            vertical-align: middle;
+        }
+        .footer .info p {
+            margin: 5px 0;
+        }
+        .footer .social {
+            display: inline-block;
+            text-align: left;
+        }
+        .footer .social a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.5em;
+        }
+        .footer .social a:hover {
+            color:rgb(0, 0, 0);
+        }
+        @media (max-width: 768px) {
+            .header .nav, .header .contact {
+                display: block;
+                margin: 10px 0;
+            }
+            .footer .info, .footer .social {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="logo">
+    <a href="http://127.0.0.1:8000/trangchu">
+    <img alt="Logo" height="40" src="https://s.net.vn/A5oM" width="40"/>
+    </a>
+   </div>
+   <nav class="nav">
+    <a href="http://127.0.0.1:8000/trangchu">
+     <i class="fas fa-home">
+     </i>
+     Trang Chủ
+    </a>
+    <a href="http://127.0.0.1:8000/gioithieu">
+     <i class="fas fa-info-circle">
+     </i>
+     Giới Thiệu
+    </a>
+    <a href="http://127.0.0.1:8000/dichvu">
+     <i class="fas fa-concierge-bell">
+     </i>
+     Dịch Vụ
+    </a>
+    <a href="http://127.0.0.1:8000/banggia">
+     <i class="fas fa-list">
+     </i>
+     Bảng Giá
+    </a>
+    <a href="http://127.0.0.1:8000/uudai">
+     <i class="fas fa-gift">
+     </i>
+     Ưu Đãi
+    </a>
+    <a href="http://127.0.0.1:8000/datlich">
+     <i class="fas fa-calendar-alt">
+     </i>
+     Đặt Lịch
+    </a>
+    <a href="http://127.0.0.1:8000/dangnhap">
+     <i class="fas fa-user-plus">
+     </i>
+     Đăng Nhập
+    </a>
+   </nav>
+   <div class="contact">
+    <a href="tel:19001234">
+     <i class="fas fa-phone">
+     </i>
+     19001234
+    </a>
+    <a href="#">
+     <i class="fas fa-search">
+     </i>
+    </a>
+   </div>
+  </header>
+  <main>
+   <img alt="Main Image" class="main-image" height="100" src="https://i.imgur.com/WUFZUjq.jpeg" width="20"/>
+   <div class="main-content">
+    <h1>
+     NHA KHOA MINH HIỆP
+    </h1>
+    <p>
+     Sẽ đồng hành cùng bạn
+    </p>
+   </div>
+  </main>
+  <div class="social-icons">
+    <a href="#">
+     <img alt="Phone icon" height="40" src="https://short.com.vn/3zw1" width="40"/>
+    </a>
+    <a href="#">
+     <img alt="Messenger icon" height="40" src="https://short.com.vn/1MJ6" width="40"/>
+    </a>
+    <a href="#">
+     <img alt="Zalo icon" height="40" src="https://s.net.vn/qQlJ" width="40"/>
+    </a>
+   </div>
+   <div class="footer">
+    <div class="info">
+     <img alt="Logo of NHA KHOA MINH HIỆP" height="50" src="https://storage.googleapis.com/a1aa/image/ZgnsAj3x9X60D1L9NSKBTBoMfe0cBNoJlf1vEvPrQoC2ohDoA.jpg" width="50"/>
+     <p>
+      Công ty: Hiệp Chơi Đá
+     </p>
+     <p>
+      Địa chỉ: Nhà Hiệp Chơi Đá
+     </p>
+     <p>
+      Email: hiephoidien@gmail.com
+     </p>
+     <p>
+      Hotline: 19001234
+     </p>
+     <p>
+      Giờ làm việc: Từ 8:30 tới 18:30 tất cả các ngày trong tuần
+     </p>
+    </div>
+    <div class="social">
+     <p>
+      Kết nối với chúng tôi
+     </p>
+     <a href="#">
+      <i class="fab fa-facebook">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-youtube">
+      </i>
+     </a>
+     <a href="#">
+      <i class="fab fa-zalo">
+      </i>
+     </a>
+    </div>
+ </body>
+</html>

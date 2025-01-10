@@ -31,23 +31,92 @@ def login(request):
 
     }
     return HttpResponse (template.render(context, request))
-
-def customer(request):
+    
+def trangchu(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/customer.html')
+    template = loader.get_template('home/trangchu.html')
     context = {
 
     }
     return HttpResponse (template.render(context, request))
 
-
-def tao_lich_hen(request):
+def gioithieu(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/tao_lich_hen.html')
+    template = loader.get_template('home/gioithieu.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def dichvu(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/dichvu.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def banggia(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/banggia.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def uudai(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/uudai.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def datlich(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/datlich.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def dangnhap(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/dangnhap.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def quenmatkhau(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/quenmatkhau.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def dangky(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/dangky.html')
     context = {
 
     }
