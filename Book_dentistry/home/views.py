@@ -5,7 +5,7 @@ from django.template import loader
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    return render(request, 'home/trangchu.html')
 
 def account_settings(request):
     return render(request, 'pages-account-settings-account.html')
@@ -117,6 +117,17 @@ def dangky(request):
         pass
 
     template = loader.get_template('home/dangky.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+
+def editdangki(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/editdangki.html')
     context = {
 
     }

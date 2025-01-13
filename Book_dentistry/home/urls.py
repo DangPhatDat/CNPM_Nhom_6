@@ -15,6 +15,7 @@ urlpatterns = [
     path('dangnhap', views.dangnhap, name='dangnhap'),
     path('quenmatkhau', views.quenmatkhau, name='quenmatkhau'),
     path('dangky', views.dangky, name='dangky'),
+    path('editdangki', views.editdangki, name='editdangki'),
 
  
 
