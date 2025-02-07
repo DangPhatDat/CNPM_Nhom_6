@@ -1,0 +1,159 @@
+{% extends "master.html" %} {%block navbar_page1%} {% include
+'../includes/navbar1.html' %} {%endblock%} {%block container_page1%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nha Khoa Minh Hiệp - Đăng Kí</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS cho toàn bộ trang */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Đăng ký */
+      .login-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        width: 350px;
+        text-align: center;
+        margin-top: 20px; /* Thêm một chút khoảng cách giữa header và form đăng ký */
+      }
+      .login-container h1 {
+        color: #000000;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      label {
+        color: #b3b3b3;
+        font-size: 14px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 95%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+      }
+      .login-button {
+        background-color: #1db954;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 50px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .login-button:hover {
+        background-color: #1ed760;
+      }
+      .links {
+        margin-top: 15px;
+      }
+      .links a {
+        color: #b3b3b3;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .links a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: rgb(37, 142, 240);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        margin-top: 20px;
+      }
+      .footer .info {
+        display: inline-block;
+        text-align: left;
+        margin-right: 500px;
+      }
+      .footer .info img {
+        width: 50px;
+        vertical-align: middle;
+      }
+      .footer .info p {
+        margin: 5px 0;
+      }
+      .footer .social {
+        display: inline-block;
+        text-align: left;
+      }
+      .footer .social a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5em;
+      }
+      .footer .social a:hover {
+        color: rgb(0, 0, 0);
+      }
+      .social-icons {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+      }
+      .social-icons a {
+        text-decoration: none;
+        color: black;
+        margin: 5px 0;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgb(0, 0, 0);
+      }
+
+      @media (max-width: 768px) {
+        .header .nav,
+        .header .contact {
+          display: block;
+          margin: 10px 0;
+        }
+        .footer .info,
+        .footer .social {
+          display: block;
+          text-align: center;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body></body>
+</html>
+{%endblock%} {%block footer_page1%} {% include '../includes/footer1.html' %}
+{%endblock%}

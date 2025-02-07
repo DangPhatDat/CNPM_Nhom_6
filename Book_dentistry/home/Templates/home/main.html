@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Navigation Menu</title>  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>  
+    <style>  
+        /* Đầu */  
+        html, body {  
+            height: 100%; /* Đặt chiều cao cho html và body */  
+            margin: 0; /* Bỏ margin mặc định */  
+        }  
+
+        body {  
+            display: flex; /* Sử dụng flexbox cho body */  
+            flex-direction: column; /* Đặt hướng chiều của flexbox là cột */  
+        }  
+
+        body {  
+            font-family: Arial, sans-serif;  
+            padding: 0;  
+        }  
+
+        .navbar {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 10px 20px;  
+            background-color: #fff;  
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .navbar img {  
+            height: 50px;  
+        }  
+
+        .navbar .menu {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .navbar .menu a {  
+            margin: 0 15px;  
+            text-decoration: none;  
+            color: #000;  
+            font-weight: bold;  
+        }  
+
+        .navbar .menu a.active {  
+            color: #007bff;  
+            border-bottom: 2px solid #007bff;  
+        }  
+
+        .navbar .menu .dropdown {  
+            position: relative;  
+        }  
+
+        .navbar .menu .dropdown-content {  
+            display: none;  
+            position: absolute;  
+            top: 100%;  
+            left: 0;  
+            background-color: #fff;  
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+            z-index: 1;  
+        }  
+
+        .navbar .menu .dropdown-content a {  
+            display: block;  
+            padding: 10px 20px;  
+            white-space: nowrap;  
+        }  
+
+        .navbar .menu .dropdown:hover .dropdown-content {  
+            display: block;  
+        }  
+
+        .navbar .search {  
+            display: flex;  
+            align-items: center;  
+        }  
+
+        .navbar .search input {  
+            padding: 5px 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 20px;  
+            margin-right: 10px;  
+        }  
+
+        .navbar .search a {  
+            margin: 0 10px;  
+            text-decoration: none;  
+            color: #000;  
+            font-weight: bold;  
+        }  
+
+        .navbar .search a.phone {  
+            background-color: #e0f7fa;  
+            padding: 5px 10px;  
+            border-radius: 20px;  
+        }  
+
+        .navbar .search a.appointment {  
+            background-color: #007bff;  
+            color: #fff;  
+            padding: 5px 10px;  
+            border-radius: 20px;  
+        }  
+
+        @media (max-width: 768px) {  
+            .navbar {  
+                flex-direction: column;  
+                align-items: flex-start;  
+            }  
+
+            .navbar .menu {  
+                flex-direction: column;  
+                align-items: flex-start;  
+            }  
+
+            .navbar .menu a {  
+                margin: 5px 0;  
+            }  
+
+            .navbar .search {  
+                flex-direction: column;  
+                align-items: flex-start;  
+            }  
+
+            .navbar .search input {  
+                margin-bottom: 10px;  
+            }  
+        }  
+
+        /* Phần thân */  
+        .container-xxl {  
+            flex: 1; /* Chiếm không gian còn lại */  
+            padding: 20px; /* Khoảng cách cho nội dung */  
+        }  
+
+        /* Đuôi */  
+        .footer {  
+            background-color: #2c3e9e;  
+            color: #ffffff;  
+            padding: 20px;  
+        }  
+
+        .footer .container {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: space-between;  
+        }  
+
+        .footer .column {  
+            flex: 1;  
+            min-width: 200px;  
+            margin: 10px;  
+        }  
+
+        .footer .column h3 {  
+            font-size: 18px;  
+            margin-bottom: 10px;  
+        }  
+
+        .footer .column p, .footer .column a {  
+            font-size: 14px;  
+            color: #ffffff;  
+            text-decoration: none;  
+            margin: 5px 0;  
+        }  
+
+        .footer .column a:hover {  
+            text-decoration: underline;  
+        }  
+
+        .footer .social-icons {  
+            display: flex;  
+            gap: 10px;  
+        }  
+
+        .footer .social-icons a {  
+            color: #ffffff;  
+            font-size: 20px;  
+            text-decoration: none;  
+        }  
+
+        .footer .social-icons a:hover {  
+            color: #d1d1d1;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <!-- Đầu --> 
+     
+    <div class="navbar">  
+        <img alt="Company Logo" src="https://placehold.co/100x50"/>  
+        <div class="menu">  
+            <a href="#">Trang Chủ</a>  
+            <a href="#">Giới Thiệu</a>  
+            <a href="#">Ưu Đãi</a>  
+            <a class="active" href="#">Bảng Giá</a>  
+            <div class="dropdown">  
+                <a href="#">Dịch Vụ <i class="fas fa-chevron-down"></i></a>  
+                <div class="dropdown-content">  
+                    <a href="#">Trồng Răng Implant</a>  
+                    <a href="#">Niềng Răng</a>  
+                    <a href="#">Nha Khoa Tổng Quát</a>  
+                    <a href="#">Nha Khoa Thẩm Mỹ</a>  
+                    <a href="#">Nha Khoa Trẻ Em</a>  
+                </div>  
+            </div>  
+            <a href="#">Tìm Phòng Khám</a>  
+            <a href="#">Đăng nhập</a>  
+        </div>  
+        <div class="search">  
+            <input placeholder="Search" type="text"/>  
+            <a class="phone" href="#">  
+                <i class="fas fa-phone"></i> 1900 8059  
+            </a>  
+            <a class="appointment" href="#">  
+                <i class="fas fa-calendar-alt"></i> Đặt lịch hẹn  
+            </a>  
+        </div>  
+    </div>  
+    
+    <!-- Phần thân -->  
+    <div class="container-xxl">  
+          
+    </div>  
+    
+    <!-- Đuôi -->  
+    <div class="footer">  
+        <div class="container">  
+            <div class="column">  
+                <img alt="Nha Khoa Parkway logo" src="https://placehold.co/100x50"/>  
+                <img alt="Protected by DMCA.com" src="https://placehold.co/100x50"/>  
+                <p>Công ty chủ quản: CÔNG TY CỔ PHẦN Y TẾ PW</p>  
+                <p>Địa chỉ: 215 Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Q3, thành phố Hồ Chí Minh.</p>  
+                <p>Email: it@nhakhoaparkway.com</p>  
+                <p>CMSDN: 0315575273 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp lần đầu ngày 20/03/2019, sửa đổi lần thứ 7 ngày 09/06/2022.</p>  
+                <p>Hiệu quả điều trị phụ thuộc vào cơ địa mỗi người (*).</p>  
+                <p>Người chịu trách nhiệm nội dung Giám đốc Nguyễn Hữu Thành – SDT: 1900 8059</p>  
+            </div>  
+            <div class="column">  
+                <h3>Giới thiệu</h3>  
+                <a href="#">Về Chúng Tôi</a>  
+                <a href="#">Bảng Giá Dịch Vụ</a>  
+                <a href="#">Tin tức sự kiện</a>  
+                <a href="#">Kiến Thức Nha Khoa</a>  
+                <a href="#">Chính sách bảo mật</a>  
+                <a href="#">Tuyển dụng</a>  
+            </div>  
+            <div class="column">  
+                <h3>Hệ thống phòng khám</h3>  
+                <p>Tp. Hồ Chí Minh</p>  
+                <p>Hà Nội</p>  
+                <p>Các tỉnh</p>  
+                <h3>Giờ làm việc</h3>  
+                <p>Từ 8:30 tới 18:30 tất cả các ngày trong tuần</p>  
+            </div>  
+            <div class="column">  
+                <h3>Liên hệ</h3>  
+                <p>HOTLINE: 1900 8059</p>  
+                <div class="social-icons">  
+                    <a href="#"><i class="fab fa-youtube"></i></a>  
+                    <a href="https://www.facebook.com/minh.hiep.127064"><i class="fab fa-facebook-f"></i></a>  
+                    <a href="#"><i class="fas fa-envelope"></i></a>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</body>  
+</html>
