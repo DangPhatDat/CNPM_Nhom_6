@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Bok_try',
     'home',
     
+    
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

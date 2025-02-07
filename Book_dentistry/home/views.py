@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-
+from .forms import datlichForm
 
 def home(request):
     return render(request, 'home/trangchu.html')
@@ -84,6 +84,11 @@ def uudai(request):
 
 def datlich(request):
     if request.method == "POST":
+        form = datlichForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect("/home/trangchu.html")
+
+
         pass
 
     template = loader.get_template('home/datlich.html')
