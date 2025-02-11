@@ -1,0 +1,89 @@
+{% extends "master.html" %}
+{%block header%}
+    {% include '../includes/header.html' %}
+{%endblock%}
+
+{%block icons%}
+    {% include '../includes/icons.html' %}
+{%endblock%}
+
+{%block container%} 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quên Mật Khẩu</title>
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        .container_quenmatkhau {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+            margin: 60px auto;
+        }
+        .title { font-size: 24px; font-weight: bold; margin-bottom: 20px; text-align: left; }
+        .form { display: flex; flex-direction: column; gap: 15px; }
+        .form label { font-weight: bold; text-align: left; }
+        .form input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form input:focus { border-color: #007bff; }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover { background-color: #0056b3; }
+        .links { margin-top: 15px; }
+        .links a { color: #007bff; text-decoration: none; font-size: 14px; }
+        .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container_quenmatkhau">
+        <h1 class="title">Quên Mật Khẩu</h1>
+        <form class="form" onsubmit="sendOTP(event)">
+            <label for="emailOrPhone">Email hoặc Số điện thoại</label>
+            <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Nhập email hoặc số điện thoại" required>
+            <button type="submit" class="button">Gửi mã xác nhận</button>
+        </form>
+        <div class="links">
+            <a href="dangnhap">Quay lại đăng nhập</a>
+        </div>
+    </div>
+
+    <script>
+        function sendOTP(event) {
+            event.preventDefault();  
+            let emailOrPhone = document.getElementById("emailOrPhone").value;
+            if (emailOrPhone.trim() === "") {
+                alert("Vui lòng nhập email hoặc số điện thoại!");
+                return;
+            }
+            alert("Mã xác nhận đã được gửi!");  
+            window.location.href = "datlaimatkhau";
+        }
+    </script>
+</body>
+</html>
+{%endblock%}
+
+
+{%block footer%}
+    {% include '../includes/footer.html' %}
+{%endblock%}

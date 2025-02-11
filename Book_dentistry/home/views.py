@@ -2,36 +2,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .forms import datlichForm
-
-def home(request):
-    return render(request, 'home/trangchu.html')
-
-def account_settings(request):
-    return render(request, 'pages-account-settings-account.html')
 
 
-def edit_dentistry(request):
-    if request.method == "POST":
-        pass
 
-    template = loader.get_template('home/edit-dentistry.html')
-    context = {
-
-    }
-    return HttpResponse (template.render(context, request))
-
-
-def login(request):
-    if request.method == "POST":
-        pass
-
-    template = loader.get_template('home/auth-login-basic.html')
-    context = {
-
-    }
-    return HttpResponse (template.render(context, request))
-    
 def trangchu(request):
     if request.method == "POST":
         pass
@@ -84,11 +57,6 @@ def uudai(request):
 
 def datlich(request):
     if request.method == "POST":
-        form = datlichForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect("/home/trangchu.html")
-
-
         pass
 
     template = loader.get_template('home/datlich.html')
@@ -127,13 +95,13 @@ def dangky(request):
     }
     return HttpResponse (template.render(context, request))
 
-
-def editdangki(request):
+def datlaimatkhau(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/editdangki.html')
+    template = loader.get_template('home/datlaimatkhau.html')
     context = {
 
     }
     return HttpResponse (template.render(context, request))
+

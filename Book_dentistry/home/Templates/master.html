@@ -189,6 +189,66 @@
         .footer .social-icons a:hover {  
             color: #d1d1d1;  
         }  
+
+        /* Container chứa các icon */
+        .chat-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Icon cơ bản */
+        .chat-icons .icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background: white;
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            color: black;
+        }
+
+        /* Ẩn chữ mặc định */
+        .chat-icons .icon span {
+            display: none;
+            white-space: nowrap;
+        }
+
+        /* Khi di chuột vào icon, hiển thị chữ */
+        .chat-icons .icon:hover span {
+            display: inline;
+        }
+
+        /* Kích thước icon */
+        .chat-icons .icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Màu nền cho từng icon */
+        .chat-icons .messenger {
+            background: #0078FF;
+            color: white;
+        }
+
+        .chat-icons .zalo {
+            background: #0068FF;
+            color: white;
+        }
+
+        .chat-icons .phone {
+            background:rgb(34, 129, 56);
+            color: white;
+        }
     </style>  
 </head>  
 <body>  
@@ -205,6 +265,11 @@
     <!-- Đuôi -->  
     {%block footer%}
     {%endblock%}
-      
+
+     <!-- icon -->  
+    {%block icons%}
+    {%endblock%}
+    
+
 </body>  
 </html>
