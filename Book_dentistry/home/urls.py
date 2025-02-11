@@ -13,8 +13,12 @@ urlpatterns = [
     path('dangnhap', views.dangnhap, name='dangnhap'),
     path('quenmatkhau', views.quenmatkhau, name='quenmatkhau'),
     path('dangky', views.dangky, name='dangky'),
-     path('datlaimatkhau', views.datlaimatkhau, name='datlaimatkhau'),
-    
+    path('datlaimatkhau', views.datlaimatkhau, name='datlaimatkhau'),
+    path('trongrangimplant', views.trongrangimplant, name='trongrangimplant'),
+    path('nhakhoatongquat', views.nhakhoatongquat, name='nhakhoatongquat'),
+    path('nhakhoathammy', views.nhakhoathammy, name='nhakhoathammy'),
+    path('niengrang', views.niengrang, name='niengrang'),
+    path('nhakhoatreem', views.nhakhoatreem, name='nhakhoatreem'),
  
 
 ]

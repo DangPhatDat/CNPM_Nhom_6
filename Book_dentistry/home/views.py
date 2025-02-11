@@ -105,3 +105,52 @@ def datlaimatkhau(request):
     }
     return HttpResponse (template.render(context, request))
 
+def trongrangimplant(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/trongrangimplant.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def nhakhoatongquat(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/nhakhoatongquat.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def nhakhoathammy(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/nhakhoathammy.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def niengrang(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/niengrang.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def nhakhoatreem(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/nhakhoatreem.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))

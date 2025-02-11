@@ -1,0 +1,401 @@
+{% extends "master.html" %}
+
+{%block header%}
+    {% include '../includes/header.html' %}
+{%endblock%}
+
+{%block container%} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+         /* Phần thân /
+.container-xxl {
+    flex: 1; / Chiếm không gian còn lại /
+     padding: 20px; / Khoảng cách cho nội dung */
+}
+{% comment %} trồng răng {% endcomment %}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+.trongrang {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Đảm bảo các mục có cùng chiều cao */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px 15px;
+}
+ .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.service-section {
+    padding: 40px 20px;
+}
+
+.service-box {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 270px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+}
+
+/* Ảnh dịch vụ */
+.service-box img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.category {
+    display: inline-block;
+    background-color: #f3f3f3;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+.price {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 16px;
+}
+
+
+.detail-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    background: #1c5985;
+}
+{% comment %} /* Phần chuyển trang */ {% endcomment %}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+}
+.pagination a:hover {
+    background-color: #2980b9;
+    color: white;
+    border-color: #2980b9;
+}
+.pagination a.active {
+    background-color: #2c3e50;
+    color: white;
+    border-color: #2c3e50;
+}
+ {% comment %} Phần nội dung {% endcomment %}
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+} 
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 10px;
+}
+
+{% comment %} phần lý do {% endcomment %}
+.trongrang3{
+    font-family: Arial, sans-serif;
+    text-align: center;
+} 
+.trongrang3 {
+    max-width: 900px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.tieudelydo{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color:rgb(24, 134, 243);
+}
+.box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.box img {
+    width: 100%;
+    border-radius: 10px;
+}
+.box h3 {
+    color: #2d2a86;
+    margin-top: 10px;
+}
+.box p {
+    color: #333;
+    font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Phần thân -->
+    <div class="container-xxl">
+        {% comment %} trồng răng {% endcomment %}
+        <header class="trongrang">
+            <h1>Trồng răng Implant</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Tất cả</a></li>
+                    <li><a href="#">🔥 Khuyến mãi</a></li>
+                    <li><a href="#">Bán chạy</a></li>
+                    <li><a href="#">Giá từ cao xuống thấp</a></li>
+                    <li><a href="#">Giá từ thấp đến cao</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="product-grid">
+                    <div class="service-box">
+                        <img src="filling.jpg" alt="Trám răng mặt nhai">
+                        <h4>Trám răng mặt nhai</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">160.000đ - 370.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="filling.jpg" alt="Trám răng mặt nhai">
+                        <h4>Trám răng mặt nhai</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">160.000đ - 370.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+                    
+        
+                    <div class="service-box">
+                        <img src="whitening.jpg" alt="Tẩy trắng răng cấp tốc">
+                        <h4>Tẩy trắng răng cấp tốc</h4>
+                        <p class="category">Nha khoa thẩm mỹ</p>
+                        <p class="price">900.000đ - 1.400.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+        
+                    <div class="service-box">
+                        <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
+                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">950.000đ - 1.600.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+
+                    <div class="service-box">
+                        <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
+                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">950.000đ - 1.600.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+        
+                    <div class="service-box">
+                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
+                        <h4>Gói niềng trong suốt Invisalign</h4>
+                        <p class="category">Niềng răng Invisalign</p>
+                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
+                        <h4>Gói niềng trong suốt Invisalign</h4>
+                        <p class="category">Niềng răng Invisalign</p>
+                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+                    <div class="service-box">
+                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
+                        <h4>Gói niềng trong suốt Invisalign</h4>
+                        <p class="category">Niềng răng Invisalign</p>
+                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+                </section >
+                 <!-- Phần chuyển trang -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+        </div>
+        </main>  
+        {% comment %} Phần nội dung {% endcomment %}
+        <section>
+            <h2>Trồng răng Implant là gì?</h2>
+            <p>Cắm ghép implant là chỉ định điều trị thiết yếu đối với tất cả các trường hợp mất răng. Trồng răng implant không chỉ giúp thay thế răng mất mà còn ngăn chặn tình trạng tiêu xương và giúp các răng xung quanh giữ vị trí, không bị lung lay xô lệch.</p>
+        </section>
+        <section >
+            <h2>Những ưu điểm của phương pháp trồng răng Implant</h2>
+            <p>Răng implant có thể tồn tại trên cung hàm như răng bình thường từ 20 năm trở lên khi được chăm sóc cẩn thận hàng ngày. Phương pháp trồng răng này có những ưu điểm vượt trội như:</p>
+            <ul>
+                <li><b>Ngăn tiêu xương</b>: Đây là hiện tượng suy giảm xương ổ răng do mất răng lâu ngày, có thể khiến nướu bị teo lại, ảnh hưởng lớn tới khớp cắn và thậm chí là khuôn mặt nếu không được trồng implant kịp thời.</li>
+                <li><b>An toàn</b>: Nhờ mô phỏng cấu trúc giống như răng tự nhiên cùng vật liệu cứng chắc, răng Implant có thể đáp ứng chức năng ăn uống như răng thật.</li>
+                <li><b>Độ bền cao</b>: Trụ titanium tích hợp rất chặt chẽ với xương hàm, mão răng sứ chắc chắn, ko biến màu hay lung lay sau thời gian dài.</li>
+            </ul>
+        </section>
+        
+        <section >
+            <h2>Các trường hợp cần cắm Implant</h2>
+            <ul>
+                <li>Bị mất một hoặc nhiều răng do tai nạn</li>
+                <li>Răng bị sâu, hư hỏng nặng cần nhổ bỏ</li>
+                <li>Trồng răng giả nhưng bị hư hỏng hoặc không muốn mài các răng bên cạnh gây tổn thương răng</li>
+                <li>Bệnh nhân bị mất nhiều răng</li>
+            </ul>
+        </section>
+        
+        <section >
+            <h2>Quy trình trồng răng Implant tại Parkway</h2>
+            <ul>
+                <li><b>Bước 1</b>: Khám tổng quát, chụp phim và lên phác đồ điều trị</li>
+                <li><b>Bước 2</b>: Thực hiện các bước tiền phẫu nếu cần (nhổ răng; ghép xương, nâng xoang, cấy trụ… )</li>
+                <li><b>Bước 3</b>: Tiến hành cấy ghép Implant</li>
+                <li><b>Bước 4</b>: Đặt Abutment (khớp nối) lên trụ Implant</li>
+                <li><b>Bước 5</b>: Phục hình răng sứ, kết thúc điều trị</li>
+            </ul>
+            <p>Thời gian từ bước nhổ răng tới bước làm phục hình có thể được rút ngắn nếu sử dụng các loại Implant có chất lượng tốt (ví dụ Straumann), thậm chí có thể gắn răng ngay sau khi cấy implant (tuỳ thuộc vào chỉ định của bác sĩ).</p>
+        </section>
+        
+        <section >
+            <h2>Vì sao nên lựa chọn khám nha khoa tổng quát tại Parkway?</h2>
+            <p>Lựa chọn khám nha khoa tổng quát tại Parkway khách hàng sẽ luôn cảm thấy hài lòng bởi:</p>
+            <ul>
+                <li>Parkway luôn đặt lợi ích sức khỏe của khách hàng lên hàng đầu.</li>
+                <li>Miễn phí khám, nhận phác đồ điều trị và chụp phim.</li>
+                <li>Cơ sở vật chất hiện đại, trang thiết bị tối tân.</li>
+                <li>Mỗi bác sĩ sẽ theo dõi khách hàng xuyên suốt quá trình điều trị.</li>
+                <li>Đối tác chiến lược của hãng niềng răng trong suốt Invisalign và Clear Correct.</li>
+                <li>Báo giá trọn gói, minh bạch, không phát sinh chi phí trong quá trình điều trị.</li>
+                <li>Có hợp đồng cam kết hiệu quả điều trị rõ ràng.</li>
+                <li>Gặp gỡ đội ngũ bác sĩ răng hàm mặt giàu kinh nghiệm.</li>
+                <li>Hệ thống phòng khám rộng khắp cả nước.</li>
+                <li>Nha khoa Parkway là chuỗi hệ thống nha khoa chuyên môn cao với chuỗi phòng khám toàn quốc, đạt nhiều thành tích về chỉnh nha và implant, tận tuỵ với triết lý điều trị chăm sóc nụ cười khỏe đẹp từ gốc, ưu tiên sức khoẻ khách hàng.</li>
+            </ul>
+        </section>
+        {% comment %} Phần lý do {% endcomment %}
+        <h4 class="tieudelydo">6 lý do nên chọn Parkway</h4>
+    <div class="trongrang3">
+        <div class="box">
+            <img src="clinic.jpg" alt="Chuỗi phòng khám">
+            <h3>Chuỗi phòng khám <br>toàn quốc</h3>
+            
+        </div>
+        <div class="box">
+            <img src="experts.jpg" alt="Chuyên gia hàng đầu">
+            <h3>Thăm khám cùng<br> chuyên gia hàng đầu</h3>
+        </div>
+        <div class="box">
+            <img src="trust.jpg" alt="Khách hàng tin tưởng">
+            <h3>61.000+ <br>khách hàng tin tưởng</h3>
+            
+        </div>
+        <div class="box">
+            <img src="partners.jpg" alt="Đối tác chiến lược">
+            <h3>Đối tác chiến lược<br> của nhiều tập đoàn nha khoa</h3>
+            
+        </div>
+        <div class="box">
+            <img src="pricing.jpg" alt="Báo giá minh bạch">
+            <h3>Báo giá trọn gói,<br>minh bạch</h3>
+            
+        </div>
+        <div class="box">
+            <img src="contract.jpg" alt="Hợp đồng cam kết">
+            <h3>Đảm bảo bằng <br>hợp đồng cam kết</h3>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+{%endblock%}
+{%block footer%}
+    {% include '../includes/footer.html' %}
+{%endblock%}
