@@ -304,8 +304,6 @@ ul li, ol li {
             <nav>
                 <ul>
                     <li><a href="#">Tất cả</a></li>
-                    <li><a href="#">🔥 Khuyến mãi</a></li>
-                    <li><a href="#">Bán chạy</a></li>
                     <li><a href="#">Giá từ cao xuống thấp</a></li>
                     <li><a href="#">Giá từ thấp đến cao</a></li>
                 </ul>
@@ -467,6 +465,70 @@ ul li, ol li {
         </div>
     </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const productGrid = document.querySelector(".product-grid");
+            const allProducts = Array.from(document.querySelectorAll(".service-box"));
+            const sortHighToLowBtn = document.querySelector('nav ul li:nth-child(2) a');
+            const sortLowToHighBtn = document.querySelector('nav ul li:nth-child(3) a');
+            const showAllBtn = document.querySelector('nav ul li:nth-child(1) a');
+            const detailButtons = document.querySelectorAll(".chitietdau .xemchitiet");
+        
+            // Function to sort products by price
+            function sortProducts(order) {
+                let sortedProducts = [...allProducts];
+        
+                sortedProducts.sort((a, b) => {
+                    const priceA = getPrice(a);
+                    const priceB = getPrice(b);
+                    return order === "asc" ? priceA - priceB : priceB - priceA;
+                });
+        
+                productGrid.innerHTML = "";
+                sortedProducts.forEach(product => productGrid.appendChild(product));
+            }
+        
+            // Function to extract price from product
+            function getPrice(product) {
+                const priceText = product.querySelector(".price").textContent;
+                const priceNumbers = priceText.match(/\d+/g);
+                return priceNumbers ? parseInt(priceNumbers[0]) : 0;
+            }
+        
+            // Event Listeners for sorting
+            sortHighToLowBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                sortProducts("desc");
+            });
+        
+            sortLowToHighBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                sortProducts("asc");
+            });
+        
+            showAllBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                productGrid.innerHTML = "";
+                allProducts.forEach(product => productGrid.appendChild(product));
+            });
+        
+            // Filtering products when clicking on "Xem chi tiết"
+            detailButtons.forEach(button => {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const categoryName = button.previousElementSibling.textContent.trim();
+                    const filteredProducts = allProducts.filter(product => product.querySelector("h4").textContent.includes(categoryName));
+        
+                    productGrid.innerHTML = "";
+                    if (filteredProducts.length > 0) {
+                        filteredProducts.forEach(product => productGrid.appendChild(product));
+                    } else {
+                        productGrid.innerHTML = "<p>Không có sản phẩm phù hợp.</p>";
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 {%endblock%}

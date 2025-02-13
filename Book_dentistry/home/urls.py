@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    path('trangchu', views.trangchu, name='trangchu'),
+    path('', views.trangchu, name='trangchu'),
     path('gioithieu', views.gioithieu, name='gioithieu'),
     path('dichvu', views.dichvu, name='dichvu'),
     path('banggia', views.banggia, name='banggia'),
@@ -19,6 +19,7 @@ urlpatterns = [
     path('nhakhoathammy', views.nhakhoathammy, name='nhakhoathammy'),
     path('niengrang', views.niengrang, name='niengrang'),
     path('nhakhoatreem', views.nhakhoatreem, name='nhakhoatreem'),
+    path('uudai', views.uudai, name='uudai'),
  
 
 ]

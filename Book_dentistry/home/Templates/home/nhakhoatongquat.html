@@ -129,37 +129,7 @@ nav ul li a {
 .detail-btn:hover {
     background: #1c5985;
 }
-{% comment %} /* Phần chuyển trang */ {% endcomment %}
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-.pagination a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 12px;
-    margin: 0 5px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10px;
-    height: 10px;
-}
-.pagination a:hover {
-    background-color: #2980b9;
-    color: white;
-    border-color: #2980b9;
-}
-.pagination a.active {
-    background-color: #2c3e50;
-    color: white;
-    border-color: #2c3e50;
-}
+
  {% comment %} Phần nội dung {% endcomment %}
 section {
     background-color: white;
@@ -218,6 +188,12 @@ ul li, ol li {
     color: #333;
     font-size: 14px;
 }
+{% comment %} javascript {% endcomment %}
+.active {
+    background-color:rgb(98, 142, 218);  /* Green background for active button */
+    color: white;  /* White text for active button */
+    font-weight: bold;  /* Make text bold */
+}
 
     </style>
 </head>
@@ -229,9 +205,6 @@ ul li, ol li {
             <h1>Nha Khoa Tổng Quát</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Tất cả</a></li>
-                    <li><a href="#">🔥 Khuyến mãi</a></li>
-                    <li><a href="#">Bán chạy</a></li>
                     <li><a href="#">Giá từ cao xuống thấp</a></li>
                     <li><a href="#">Giá từ thấp đến cao</a></li>
                 </ul>
@@ -240,72 +213,66 @@ ul li, ol li {
         <main>
             <section class="product-grid">
                     <div class="service-box">
-                        <img src="filling.jpg" alt="Điều trị nha chu">
-                        <h4>Điều trị nha chu</h4>
+                        <img src="filling.jpg" alt="">
+                        <h4>Nhổ răng độ khó I</h4>
                         <p class="category">Nha khoa tổng quát</p>
-                        <p class="price">700.000đ - 1.600.000đ</p>
+                        <p class="price">370.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="filling.jpg" alt="Trám răng mặt nhai">
-                        <h4>Nhổ răng khôn</h4>
-                        <p class="category">Nha khoa tổng quát</p>
-                        <p class="price">950.000đ - 5.899.999đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
-                    </div>
-                    
-        
-                    <div class="service-box">
-                        <img src="whitening.jpg" alt="Tẩy trắng răng cấp tốc">
-                        <h4>Tẩy trắng răng cấp tốc</h4>
-                        <p class="category">Nha khoa thẩm mỹ</p>
-                        <p class="price">900.000đ - 1.400.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
-                    </div>
-        
-                    <div class="service-box">
-                        <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
+                        <img src="filling.jpg" alt="">
                         <h4>Nhổ răng khôn độ khó I</h4>
                         <p class="category">Nha khoa tổng quát</p>
-                        <p class="price">950.000đ - 1.600.000đ</p>
+                        <p class="price">950.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+        
+                    <div class="service-box">
+                        <img src="whitening.jpg" alt="">
+                        <h4>Trám răng mặt nhai</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">160.000đ</p>
+                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                    </div>
+        
+                    <div class="service-box">
+                        <img src="wisdom-tooth.jpg" alt="">
+                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">950.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
 
                     <div class="service-box">
-                        <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
-                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <img src="wisdom-tooth.jpg" alt="">
+                        <h4>Điều trị tuỷ răng R1-2-3</h4>
                         <p class="category">Nha khoa tổng quát</p>
-                        <p class="price">950.000đ - 1.600.000đ</p>
+                        <p class="price">1.500.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
-                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                        <h4>Gói niềng trong suốt Invisalign</h4>
-                        <p class="category">Niềng răng Invisalign</p>
-                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Điều trị tuỷ răng R4-5</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">1.200.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                        <h4>Gói niềng trong suốt Invisalign</h4>
-                        <p class="category">Niềng răng Invisalign</p>
-                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Chốt tủy zirconia cá nhân hóa</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">2.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                        <h4>Gói niềng trong suốt Invisalign</h4>
-                        <p class="category">Niềng răng Invisalign</p>
-                        <p class="price">117.000.000đ - 119.999.999đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Điều trị tủy lại lại cho răng R1-2-3-4-5</h4>
+                        <p class="category">Nha khoa tổng quát</p>
+                        <p class="price">3.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                 </section >
-                 <!-- Phần chuyển trang -->
-        <div class="pagination">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-        </div>
         </main>  
         {% comment %} Phần nội dung {% endcomment %}
         <section>
@@ -379,6 +346,51 @@ ul li, ol li {
         </div>
     </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sortAscBtn = document.querySelector("nav ul li:nth-child(2) a"); // Giá từ thấp đến cao
+            const sortDescBtn = document.querySelector("nav ul li:nth-child(1) a"); // Giá từ cao xuống thấp
+            const productGrid = document.querySelector(".product-grid");
+        
+            function parsePrice(priceText) {
+                return parseInt(priceText.replace(/\./g, "").replace("đ", ""));
+            }
+        
+            function sortProducts(ascending) {
+                let products = Array.from(document.querySelectorAll(".service-box"));
+        
+                products.sort((a, b) => {
+                    let priceA = parsePrice(a.querySelector(".price").textContent);
+                    let priceB = parsePrice(b.querySelector(".price").textContent);
+                    return ascending ? priceA - priceB : priceB - priceA;
+                });
+        
+                products.forEach(product => productGrid.appendChild(product));
+            }
+        
+            function updateActiveButton(button) {
+                // Remove active class from both buttons
+                sortAscBtn.classList.remove("active");
+                sortDescBtn.classList.remove("active");
+        
+                // Add active class to the clicked button
+                button.classList.add("active");
+            }
+        
+            sortAscBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                sortProducts(true);
+                updateActiveButton(sortAscBtn);
+            });
+        
+            sortDescBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                sortProducts(false);
+                updateActiveButton(sortDescBtn);
+            });
+        });
+        
+    </script>
 </body>
 </html>
 {%endblock%}

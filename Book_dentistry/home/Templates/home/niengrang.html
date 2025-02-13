@@ -27,16 +27,29 @@ body {
 }
 
 {% comment %} chi tiết {% endcomment %}
+.buton {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:rgb(248, 251, 253);
+}
+
+.chitiet-container {
+    width: 1000px; /* Hiển thị đúng 3 ô (270px mỗi ô + 20px khoảng cách) */
+    overflow: hidden;
+    position: relative;
+}
+
 .chitiet {
     display: flex;
-    flex-direction: row; /* Xếp theo chiều ngang */
-    flex-wrap: nowrap; /* Ngăn không cho xuống hàng */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
-    overflow-x: auto; /* Tạo thanh cuộn ngang nếu không đủ chỗ */
-    white-space: nowrap;
-    padding: 40px;
+    flex-direction: row;
+    gap: 20px;
+    transition: transform 0.3s ease-in-out;
+    width: max-content;
 }
 
 .chitietdau {
@@ -69,16 +82,10 @@ body {
     color: #2c3e50;
 }
 
-/* Hiệu ứng hover */
-.chitietdau:hover {
-    transform: scale(1.05);
-}
-
-/* Nút "Xem chi tiết" */
 .xemchitiet {
     display: inline-block;
     padding: 10px 15px;
-    background:rgb(115, 176, 217);
+    background: rgb(115, 176, 217);
     color: white;
     text-decoration: none;
     border-radius: 20px;
@@ -90,8 +97,28 @@ body {
 
 .xemchitiet:hover {
     background-color: #1c5985;
-} 
+}
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    margin: 0 10px;
+    background: #1c5985;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttons button:hover {
+    background: #0f3b5d;
+}
 {% comment %} Niềng răng {% endcomment %}
 .niengrang {
     background-color: #fff;
@@ -291,37 +318,48 @@ ul li, ol li {
     <!-- Phần thân -->
     <div class="container-xxl">
         {% comment %} chi tiết đầu {% endcomment %}
-        <div class="chitiet">
-            <div class="chitietdau">
-                <img src="invisalign.jpg" alt="Niềng răng trong suốt Invisalign">
-                <h4>Niềng răng trong suốt Invisalign</h4>
-                <a href="#" class="xemchitiet">Xem chi tiết</a>
+        <div class="buton">
+            <div class="chitiet-container">
+                <div class="chitiet" id="chitiet">
+                    <div class="chitietdau">
+                        <img src="invisalign.jpg" alt="Niềng răng trong suốt Invisalign">
+                        <h4>Niềng răng trong suốt Invisalign</h4>
+                        <a href="#" class="xemchitiet">Xem chi tiết</a>
+                    </div>
+                    <div class="chitietdau">
+                        <img src="clearcorrect.jpg" alt="Niềng răng Clearcorrect">
+                        <h4>Niềng răng Clearcorrect</h4>
+                        <a href="#" class="xemchitiet">Xem chi tiết</a>
+                    </div>
+                    <div class="chitietdau">
+                        <img src="maccai-tietkiem.jpg" alt="Niềng răng mắc cài tiết kiệm">
+                        <h4>Niềng răng mắc cài tiết kiệm</h4>
+                        <a href="#" class="xemchitiet">Xem chi tiết</a>
+                    </div>
+                    <div class="chitietdau">
+                        <img src="maccai-truyenthong.jpg" alt="Niềng răng mắc cài truyền thống">
+                        <h4>Niềng răng mắc cài truyền thống</h4>
+                        <a href="#" class="xemchitiet">Xem chi tiết</a>
+                    </div>
+                    <div class="chitietdau">
+                        <img src="clearcorrect.jpg" alt="Niềng răng Clearcorrect">
+                        <h4>Niềng răng Clearcorrect</h4>
+                        <a href="#" class="xemchitiet">Xem chi tiết</a>
+                    </div>
+                </div>
             </div>
-            <div class="chitietdau">
-                <img src="clearcorrect.jpg" alt="Niềng răng Clearcorrect">
-                <h4>Niềng răng Clearcorrect</h4>
-                <a href="#" class="xemchitiet">Xem chi tiết</a>
-            </div>
-            <div class="chitietdau">
-                <img src="maccai-tietkiem.jpg" alt="Niềng răng mắc cài tiết kiệm">
-                <h4>Niềng răng mắc cài tiết kiệm</h4>
-                <a href="#" class="xemchitiet">Xem chi tiết</a>
-            </div>
-            <div class="chitietdau">
-                <img src="maccai-truyenthong.jpg" alt="Niềng răng mắc cài truyền thống">
-                <h4>Niềng răng mắc cài truyền thống</h4>
-                <a href="#" class="xemchitiet">Xem chi tiết</a>
-            </div>
-        </div> 
+        </div>
+        <div class="buttons">
+            <button onclick="moveLeft()">&#10094; Trước</button>
+            <button onclick="moveRight()">Sau &#10095;</button>
+        </div>
+    <br>
         
         {% comment %} niềng răng {% endcomment %}
         <header class="niengrang">
             <h1>Niềng Răng</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Tất cả</a></li>
-                    <li><a href="#">🔥 Khuyến mãi</a></li>
-                    <li><a href="#">Bán chạy</a></li>
                     <li><a href="#">Giá từ cao xuống thấp</a></li>
                     <li><a href="#">Giá từ thấp đến cao</a></li>
                 </ul>
@@ -481,6 +519,24 @@ ul li, ol li {
         </div>
     </div>
     </div>
+    <script>
+        let scrollAmount = 0;
+        const scrollStep = 290 + 10; // Tính cả khoảng cách giữa các item
+        const visibleCards = 3;
+        const container = document.getElementById("chitiet");
+        const totalCards = container.children.length;
+        const maxScroll = (totalCards - visibleCards) * scrollStep;
+
+        function moveLeft() {
+            scrollAmount = Math.max(scrollAmount - scrollStep, 0);
+            container.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        function moveRight() {
+            scrollAmount = Math.min(scrollAmount + scrollStep, maxScroll);
+            container.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+    </script>
 </body>
 </html>
 {%endblock%}

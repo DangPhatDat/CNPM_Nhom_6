@@ -41,21 +41,38 @@ h2 {
     padding: 20px;
 }
 
-/* Danh sách dịch vụ */
+{% comment %} /* Danh sách dịch vụ */ {% endcomment %}
 .service-section {
-    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
 }
 
 .service-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    max-width: 950px;
+}
+
+.service-box {
+    min-width: 100px;
+    margin-right: 19px;
+}
+
+.scroll-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.scroll-btn:hover {
+    background-color: #0056b3;
 }
 
 /* Thẻ dịch vụ */
@@ -292,7 +309,6 @@ h4 {
 .site strong {
     color: #e74c3c;
 }
-
 </style>
 </head>
 <body>  
@@ -318,7 +334,7 @@ h4 {
         <!-- Bố cục 2 - Icon Items -->  
         <div class="bocuc2">  
             <div class="icon-item">  
-                <a href="">  
+                <a href="uudai">  
                     <img alt="Icon representing latest offers" src="https://storage.googleapis.com/a1aa/image/g2fCQx7qS_E505RTSIDNPNNUXvt3dbdypK35omO-6Hw.jpg"/>  
                     <p>Ưu đãi mới nhất</p>  
                 </a>  
@@ -330,13 +346,13 @@ h4 {
                 </a>  
             </div>  
             <div class="icon-item">  
-                <a href="">  
+                <a href="datlich">  
                     <img alt="Icon representing appointment booking" src="https://storage.googleapis.com/a1aa/image/edugtGcp8ZH8z53HqOxZy0mAX699YgnyWDIvhP4k2M8.jpg"/>  
                     <p>Đặt lịch hẹn</p>  
                 </a>  
             </div>  
             <div class="icon-item">  
-                <a href="">  
+                <a href="niengrang">  
                     <img alt="Icon representing braces" src="https://storage.googleapis.com/a1aa/image/_O33yxsdJwnEmG8K-HJZ0zQ6-Iz51XrHdA8zLfVyUr4.jpg"/>  
                     <p>Niềng răng</p>  
                 </a>  
@@ -446,58 +462,50 @@ h4 {
        {% comment %} bố cục 4 {% endcomment %}
        <body>
 
-        <h2>Dịch vụ đang được yêu thích</h2>
-
-    <div class="service-section">
-        <div class="service-container">
-            <div class="service-box">
-                <img src="filling.jpg" alt="Trám răng mặt nhai">
-                <h4>Trám răng mặt nhai</h4>
-                <p class="category">Nha khoa tổng quát</p>
-                <p class="price">160.000đ - 370.000đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
-
-            <div class="service-box">
-                <img src="whitening.jpg" alt="Tẩy trắng răng cấp tốc">
-                <h4>Tẩy trắng răng cấp tốc</h4>
-                <p class="category">Nha khoa thẩm mỹ</p>
-                <p class="price">900.000đ - 1.400.000đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
-
-            <div class="service-box">
-                <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
-                <h4>Nhổ răng khôn độ khó I</h4>
-                <p class="category">Nha khoa tổng quát</p>
-                <p class="price">950.000đ - 1.600.000đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
-
-            <div class="service-box">
-                <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                <h4>Gói niềng trong suốt Invisalign</h4>
-                <p class="category">Niềng răng Invisalign</p>
-                <p class="price">117.000.000đ - 119.999.999đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
-            <div class="service-box">
-                <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                <h4>Gói niềng trong suốt Invisalign</h4>
-                <p class="category">Niềng răng Invisalign</p>
-                <p class="price">117.000.000đ - 119.999.999đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
-            <div class="service-box">
-                <img src="invisalign.jpg" alt="Gói niềng trong suốt">
-                <h4>Gói niềng trong suốt Invisalign</h4>
-                <p class="category">Niềng răng Invisalign</p>
-                <p class="price">117.000.000đ - 119.999.999đ</p>
-                <a href="#" class="detail-btn">Xem chi tiết</a>
-            </div>
+        
+<h2>Dịch vụ đang được yêu thích</h2>
+<div class="service-section">
+    <button class="scroll-btn prev-btn">&#10094;</button>
+    <div class="service-container" id="serviceContainer">
+        <div class="service-box">
+            <img src="filling.jpg" alt="Trám răng mặt nhai">
+            <h4>Trám răng mặt nhai</h4>
+            <p class="category">Nha khoa tổng quát</p>
+            <p class="price">160.000đ - 370.000đ</p>
+            <a href="#" class="detail-btn">Xem chi tiết</a>
+        </div>
+        <div class="service-box">
+            <img src="whitening.jpg" alt="Tẩy trắng răng cấp tốc">
+            <h4>Tẩy trắng răng cấp tốc</h4>
+            <p class="category">Nha khoa thẩm mỹ</p>
+            <p class="price">900.000đ - 1.400.000đ</p>
+            <a href="#" class="detail-btn">Xem chi tiết</a>
+        </div>
+        <div class="service-box">
+            <img src="wisdom-tooth.jpg" alt="Nhổ răng khôn độ khó I">
+            <h4>Nhổ răng khôn độ khó I</h4>
+            <p class="category">Nha khoa tổng quát</p>
+            <p class="price">950.000đ - 1.600.000đ</p>
+            <a href="#" class="detail-btn">Xem chi tiết</a>
+        </div>
+        <div class="service-box">
+            <img src="invisalign.jpg" alt="Gói niềng trong suốt">
+            <h4>Gói niềng trong suốt Invisalign</h4>
+            <p class="category">Niềng răng Invisalign</p>
+            <p class="price">117.000.000đ - 119.999.999đ</p>
+            <a href="#" class="detail-btn">Xem chi tiết</a>
+        </div>
+        <div class="service-box">
+            <img src="invisalign.jpg" alt="Gói niềng trong suốt">
+            <h4>Gói niềng trong suốt Invisalign</h4>
+            <p class="category">Niềng răng Invisalign</p>
+            <p class="price">117.000.000đ - 119.999.999đ</p>
+            <a href="#" class="detail-btn">Xem chi tiết</a>
         </div>
     </div>
-
+    <button class="scroll-btn next-btn">&#10095;</button>
+</div>
+    
     <div class="site">
         <p>
             Tự hào là hệ thống nha khoa đạt danh hiệu <strong>RED DIAMOND</strong> – Top 01 châu Á với hơn 
@@ -507,43 +515,78 @@ h4 {
 
 </body> 
     <script>  
-        let currentIndex = 0;  
-        const images = [  
-            'https://i.imgur.com/bh0HiZz.jpeg',  
-            'https://i.imgur.com/p9URSdS.jpeg',  
-            'https://i.imgur.com/nj73qDX.jpeg',  
-            'https://i.imgur.com/KhdRUz8.jpeg'  
-        ];  
-
-        const carousel = document.querySelector('.carousel img');  
-        const indicators = document.querySelectorAll('.carousel-indicators span');  
-
-        document.querySelector('.prev').addEventListener('click', () => {  
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;  
-            updateCarousel();  
-        });  
-
-        document.querySelector('.next').addEventListener('click', () => {  
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;  
-            updateCarousel();  
-        });  
-
-        indicators.forEach((indicator, index) => {  
-            indicator.addEventListener('click', () => {  
-                currentIndex = index;  
-                updateCarousel();  
-            });  
-        });  
-
-        function updateCarousel() {  
-            carousel.src = images[currentIndex];  
-            indicators.forEach((indicator, index) => {  
-                indicator.classList.toggle('active', index === currentIndex);  
-            });  
-        }  
+        let currentIndex = 0;
+        const images = [
+            'https://i.imgur.com/bh0HiZz.jpeg',
+            'https://i.imgur.com/p9URSdS.jpeg',
+            'https://i.imgur.com/nj73qDX.jpeg',
+            'https://i.imgur.com/KhdRUz8.jpeg'
+        ];
+        
+        const carousel = document.querySelector('.carousel img');
+        const indicators = document.querySelectorAll('.carousel-indicators span');
+        
+        document.querySelector('.prev').addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+        
+        document.querySelector('.next').addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+                resetAutoSlide();
+            });
+        });
+        
+        function updateCarousel() {
+            carousel.src = images[currentIndex];
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        function nextSlide() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateCarousel();
+        }
+        
+        // Tự động chuyển ảnh mỗi 3 giây
+        let autoSlide = setInterval(nextSlide, 3000);
+        
+        // Reset khi có tương tác
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(nextSlide, 3000);
+        }
+        
     </script>  
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById("serviceContainer");
+            const prevBtn = document.querySelector(".prev-btn");
+            const nextBtn = document.querySelector(".next-btn");
+    
+            prevBtn.addEventListener("click", function () {
+                container.scrollBy({ left: -300, behavior: "smooth" });
+            });
+    
+            nextBtn.addEventListener("click", function () {
+                container.scrollBy({ left: 300, behavior: "smooth" });
+            });
+        });
+    </script>
 </body> 
- 
 </html>
 {%endblock%}
 {%block footer%}

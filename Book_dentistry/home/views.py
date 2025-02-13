@@ -115,6 +115,7 @@ def trongrangimplant(request):
     }
     return HttpResponse (template.render(context, request))
 
+
 def nhakhoatongquat(request):
     if request.method == "POST":
         pass
@@ -123,6 +124,8 @@ def nhakhoatongquat(request):
     context = {
 
     }
+    return HttpResponse (template.render(context, request))
+
     return HttpResponse (template.render(context, request))
 
 def nhakhoathammy(request):
@@ -154,3 +157,14 @@ def nhakhoatreem(request):
 
     }
     return HttpResponse (template.render(context, request))
+
+def uudai(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/uudai.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
