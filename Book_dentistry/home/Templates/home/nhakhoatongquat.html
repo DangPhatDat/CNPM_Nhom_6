@@ -194,6 +194,61 @@ ul li, ol li {
     color: white;  /* White text for active button */
     font-weight: bold;  /* Make text bold */
 }
+{% comment %} phan hidden {% endcomment %}
+.hidden {
+    display: none !important;
+}
+.hidden-container {
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    position: relative;
+}
+.hidden-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.hidden-details img {
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.info {
+    flex: 1;
+}
+
+.hidden-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.detail-btn.back-btn {
+    position: absolute;
+    bottom: 15px; /* Cách đáy container 15px */
+    right: 15px; /* Cách mép phải container 15px */
+    background: #f8d7da; /* Màu đỏ nhạt */
+    color:#721c24; /* Màu chữ đỏ đậm */
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 25px; /* Bo tròn góc */
+}
+
+.detail-btn.back-btn:hover {
+    background: #f1b0b7; /* Đổi sang màu hồng nhạt khi hover */
+    color: #721c24; /* Màu chữ không đổi để dễ đọc */
+}
 
     </style>
 </head>
@@ -204,75 +259,90 @@ ul li, ol li {
         <header class="tongquat">
             <h1>Nha Khoa Tổng Quát</h1>
             <nav>
-                <ul>
+                <ul id="sort">
                     <li><a href="#">Giá từ cao xuống thấp</a></li>
                     <li><a href="#">Giá từ thấp đến cao</a></li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section class="product-grid">
+            <section id="product-list" class="product-grid">
                     <div class="service-box">
                         <img src="filling.jpg" alt="">
-                        <h4>Nhổ răng độ khó I</h4>
+                        <h4 class="product-title">Nhổ răng độ khó I</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">370.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
                         <img src="filling.jpg" alt="">
-                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <h4 class="product-title">Nhổ răng khôn độ khó I</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">950.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
                         <img src="whitening.jpg" alt="">
-                        <h4>Trám răng mặt nhai</h4>
+                        <h class="product-title">Trám răng mặt nhai</h>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">160.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
                         <img src="wisdom-tooth.jpg" alt="">
-                        <h4>Nhổ răng khôn độ khó I</h4>
+                        <h4 class="product-title">Nhổ răng khôn độ khó I</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">950.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
 
                     <div class="service-box">
                         <img src="wisdom-tooth.jpg" alt="">
-                        <h4>Điều trị tuỷ răng R1-2-3</h4>
+                        <h4 class="product-title">Điều trị tuỷ răng R1-2-3</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">1.500.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
                         <img src="invisalign.jpg" alt="">
-                        <h4>Điều trị tuỷ răng R4-5</h4>
+                        <h4 class="product-title">Điều trị tuỷ răng R4-5</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">1.200.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
                         <img src="invisalign.jpg" alt="">
-                        <h4>Chốt tủy zirconia cá nhân hóa</h4>
+                        <h4 class="product-title">Chốt tủy zirconia cá nhân hóa</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">2.000.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
                         <img src="invisalign.jpg" alt="">
-                        <h4>Điều trị tủy lại lại cho răng R1-2-3-4-5</h4>
+                        <h4 class="product-title">Điều trị tủy lại lại cho răng R1-2-3-4-5</h4>
                         <p class="category">Nha khoa tổng quát</p>
                         <p class="price">3.000.000đ</p>
-                        <a href="#" class="detail-btn">Xem chi tiết</a>
+                        <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
                     </div>
                 </section >
+                <!-- Chi tiết sản phẩm (Ẩn mặc định) -->
+                <section id="product-detail" class="hidden">
+                    <div class="hidden-container">
+                        <h2 id="detail-title"></h2>
+                        <div class="hidden-details">
+                            <img id="hidden-detail img" src="" alt="Sản phẩm">
+                            <div class="info">
+                                <span  id="hidden-price" class="price"></span>
+                                <p><strong>Dịch vụ:</strong> Trồng răng Implant</p>
+                                <a href="datlich" class="detail-btn"> Đặt lịch ngay</a> 
+                                <button class="detail-btn back-btn" onclick="backToList()">Quay lại</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
         </main>  
         {% comment %} Phần nội dung {% endcomment %}
         <section>
@@ -389,6 +459,32 @@ ul li, ol li {
                 updateActiveButton(sortDescBtn);
             });
         });
+
+        // pop up
+        
+        function showDetail(element) {
+            // Lấy thông tin từ phần tử được nhấn vào
+            const imgSrc = element.parentElement.querySelector("img").src;
+            const title = element.parentElement.querySelector(".product-title").innerText;
+            const price = element.parentElement.querySelector(".price").innerText;
+        
+            // Cập nhật nội dung chi tiết
+            document.getElementById("hidden-detail img").src = imgSrc;
+            document.getElementById("detail-title").innerText = title;
+            document.getElementById("hidden-price").innerText = price;
+        
+            // Ẩn danh sách sản phẩm, hiện chi tiết sản phẩm
+            document.getElementById("product-list").classList.add("hidden");
+            document.getElementById("product-detail").classList.remove("hidden");
+            document.getElementById("sort").classList.add("hidden");
+        }
+        
+        function backToList() {
+            // Hiện danh sách sản phẩm, ẩn chi tiết sản phẩm
+            document.getElementById("product-list").classList.remove("hidden");
+            document.getElementById("sort").classList.remove("hidden");
+            document.getElementById("product-detail").classList.add("hidden");
+        }
         
     </script>
 </body>
