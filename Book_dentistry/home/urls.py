@@ -21,7 +21,10 @@ urlpatterns = [
     path('niengrang', views.niengrang, name='niengrang'),
     path('nhakhoatreem', views.nhakhoatreem, name='nhakhoatreem'),
     path('uudai', views.uudai, name='uudai'),
- 
+    path('dkphongkham', views.dkphongkham, name='dkphongkham'),
+    path('benhnhan', views.benhnhan, name='benhnhan'),
+    path('quanlibs', views.quanlibs, name='quanlibs'),
+    path('trangchubs', views.trangchubs, name='trangchubs'),
 
 ]
 

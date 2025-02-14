@@ -1,0 +1,305 @@
+<html lang="vi">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Quản lý Lịch khám & Bệnh nhân
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 1rem;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .appointment-list, .patient-list {
+            margin-top: 2rem;
+        }
+        .appointment-item, .patient-item {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .appointment-info, .patient-info {
+            flex-grow: 1;
+        }
+        .appointment-item button, .patient-item button {
+            background-color: #dc3545;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .appointment-item button:hover, .patient-item button:hover {
+            background-color: #c82333;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <h1>
+    Quản lý Lịch khám & Bệnh nhân
+   </h1>
+   <ul>
+    <li>
+     <a href="#">
+      <i class="fas fa-home">
+      </i>
+      Trang chủ
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-user-md">
+      </i>
+      Bác sĩ
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-procedures">
+      </i>
+      Bệnh nhân
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-calendar-alt">
+      </i>
+      Lịch khám
+     </a>
+    </li>
+   </ul>
+  </div>
+  <div class="main-content">
+   <div class="card">
+    <h2>
+     Thêm Lịch khám Mới
+    </h2>
+    <form>
+     <div class="form-group">
+      <label for="appointment-date">
+       Ngày khám
+      </label>
+      <input id="appointment-date" name="appointment-date" type="date"/>
+     </div>
+     <div class="form-group">
+      <label for="appointment-time">
+       Giờ khám
+      </label>
+      <input id="appointment-time" name="appointment-time" type="time"/>
+     </div>
+     <div class="form-group">
+      <label for="doctor-name">
+       Tên bác sĩ
+      </label>
+      <input id="doctor-name" name="doctor-name" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="patient-name">
+       Tên bệnh nhân
+      </label>
+      <input id="patient-name" name="patient-name" type="text"/>
+     </div>
+     <div class="form-group">
+      <button type="submit">
+       Thêm Lịch khám
+      </button>
+     </div>
+    </form>
+   </div>
+   <div class="appointment-list">
+    <h2>
+     Danh sách Lịch khám
+    </h2>
+    <div class="appointment-item">
+     <div class="appointment-info">
+      <h3>
+       Bác sĩ John Doe với Jane Smith
+      </h3>
+      <p>
+       Ngày: 2023-10-01
+      </p>
+      <p>
+       Giờ: 10:00 AM
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+    <div class="appointment-item">
+     <div class="appointment-info">
+      <h3>
+       Bác sĩ Jane Smith với John Doe
+      </h3>
+      <p>
+       Ngày: 2023-10-02
+      </p>
+      <p>
+       Giờ: 11:00 AM
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+    <div class="appointment-item">
+     <div class="appointment-info">
+      <h3>
+       Bác sĩ Emily Johnson với Michael Brown
+      </h3>
+      <p>
+       Ngày: 2023-10-03
+      </p>
+      <p>
+       Giờ: 09:00 AM
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     Thêm Bệnh nhân Mới
+    </h2>
+    <form>
+     <div class="form-group">
+      <label for="patient-name">
+       Tên bệnh nhân
+      </label>
+      <input id="patient-name" name="patient-name" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="patient-history">
+       Lịch sử bệnh
+      </label>
+      <input id="patient-history" name="patient-history" type="text"/>
+     </div>
+     <div class="form-group">
+      <button type="submit">
+       Thêm Bệnh nhân
+      </button>
+     </div>
+    </form>
+   </div>
+   <div class="patient-list">
+    <h2>
+     Danh sách Bệnh nhân
+    </h2>
+    <div class="patient-item">
+     <div class="patient-info">
+      <h3>
+       Jane Smith
+      </h3>
+      <p>
+       Lịch sử bệnh: Tăng huyết áp
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+    <div class="patient-item">
+     <div class="patient-info">
+      <h3>
+       John Doe
+      </h3>
+      <p>
+       Lịch sử bệnh: Tiểu đường
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+    <div class="patient-item">
+     <div class="patient-info">
+      <h3>
+       Michael Brown
+      </h3>
+      <p>
+       Lịch sử bệnh: Hen suyễn
+      </p>
+     </div>
+     <button>
+      Xóa
+     </button>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

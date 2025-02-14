@@ -1,0 +1,157 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Clinic Registration
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 1rem;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <h1>
+    Clinic Registration
+   </h1>
+   <ul>
+    <li>
+     <a href="#">
+      <i class="fas fa-home">
+      </i>
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-user-md">
+      </i>
+      Doctors
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-procedures">
+      </i>
+      Patients
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-calendar-alt">
+      </i>
+      Appointments
+     </a>
+    </li>
+   </ul>
+  </div>
+  <div class="main-content">
+   <div class="card">
+    <h2>
+     Register Your Clinic
+    </h2>
+    <form>
+     <div class="form-group">
+      <label for="clinic-name">
+       Clinic Name
+      </label>
+      <input id="clinic-name" name="clinic-name" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="clinic-address">
+       Clinic Address
+      </label>
+      <input id="clinic-address" name="clinic-address" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="clinic-phone">
+       Clinic Phone Number
+      </label>
+      <input id="clinic-phone" name="clinic-phone" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="clinic-license">
+       Clinic License
+      </label>
+      <input id="clinic-license" name="clinic-license" type="text"/>
+     </div>
+     <div class="form-group">
+      <button type="submit">
+       Submit
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+ </body>
+</html>

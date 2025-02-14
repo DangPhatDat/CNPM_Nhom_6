@@ -1,0 +1,177 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Clinic Dashboard
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 1rem;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .card p {
+            margin: 0.5rem 0;
+        }
+        .menu-toggle {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+            .navbar ul.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #007bff;
+                width: 100%;
+                padding: 1rem;
+            }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <h1>
+    Clinic Dashboard
+   </h1>
+   <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars">
+    </i>
+   </div>
+   <ul id="navbar-menu">
+    <li>
+     <a href="#">
+      <i class="fas fa-home">
+      </i>
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-user-md">
+      </i>
+      Doctors
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-procedures">
+      </i>
+      Patients
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-calendar-alt">
+      </i>
+      Appointments
+     </a>
+    </li>
+   </ul>
+  </div>
+  <div class="main-content">
+   <div class="card">
+    <h2>
+     Overview
+    </h2>
+    <p>
+     Total Doctors: 15
+    </p>
+    <p>
+     Total Patients: 120
+    </p>
+    <p>
+     Total Appointments: 45
+    </p>
+   </div>
+   <div class="card">
+    <h2>
+     Doctors
+    </h2>
+    <img alt="A group of doctors standing together in a hospital setting" src="https://placehold.co/600x400"/>
+    <p>
+     Manage and view details of all doctors in the clinic.
+    </p>
+   </div>
+   <div class="card">
+    <h2>
+     Patients
+    </h2>
+    <img alt="A group of patients sitting in a waiting room" src="https://placehold.co/600x400"/>
+    <p>
+     Manage and view details of all patients in the clinic.
+    </p>
+   </div>
+   <div class="card">
+    <h2>
+     Appointments
+    </h2>
+    <img alt="A calendar with marked appointment dates" src="https://placehold.co/600x400"/>
+    <p>
+     Manage and view all appointments scheduled in the clinic.
+    </p>
+   </div>
+  </div>
+  <script>
+   function toggleMenu() {
+            var navbarMenu = document.getElementById('navbar-menu');
+            navbarMenu.classList.toggle('open');
+        }
+  </script>
+ </body>
+</html>

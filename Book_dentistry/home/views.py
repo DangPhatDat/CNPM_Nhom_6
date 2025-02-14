@@ -168,3 +168,42 @@ def uudai(request):
     }
     return HttpResponse (template.render(context, request))
 
+def dkphongkham(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/dangkiphongkham.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def benhnhan(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/quanli-lichkham-benhnhan.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def quanlibs(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/quanlibacsi.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def trangchubs(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/trangchu-bacsi.html.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))

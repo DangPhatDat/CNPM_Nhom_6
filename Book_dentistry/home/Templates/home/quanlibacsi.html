@@ -1,0 +1,232 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Doctor Management
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 1rem;
+        }
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .doctor-list {
+            margin-top: 2rem;
+        }
+        .doctor-item {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .doctor-item img {
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .doctor-info {
+            flex-grow: 1;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="navbar">
+   <h1>
+    Doctor Management
+   </h1>
+   <ul>
+    <li>
+     <a href="#">
+      <i class="fas fa-home">
+      </i>
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-user-md">
+      </i>
+      Doctors
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-procedures">
+      </i>
+      Patients
+     </a>
+    </li>
+    <li>
+     <a href="#">
+      <i class="fas fa-calendar-alt">
+      </i>
+      Appointments
+     </a>
+    </li>
+   </ul>
+  </div>
+  <div class="main-content">
+   <div class="card">
+    <h2>
+     Register New Doctor
+    </h2>
+    <form>
+     <div class="form-group">
+      <label for="doctor-name">
+       Doctor Name
+      </label>
+      <input id="doctor-name" name="doctor-name" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="doctor-specialty">
+       Specialty
+      </label>
+      <input id="doctor-specialty" name="doctor-specialty" type="text"/>
+     </div>
+     <div class="form-group">
+      <label for="doctor-experience">
+       Years of Experience
+      </label>
+      <input id="doctor-experience" name="doctor-experience" type="number"/>
+     </div>
+     <div class="form-group">
+      <button type="submit">
+       Create Doctor Account
+      </button>
+     </div>
+    </form>
+   </div>
+   <div class="doctor-list">
+    <h2>
+     Doctor List
+    </h2>
+    <div class="doctor-item">
+     <img alt="Portrait of Dr. John Doe, a cardiologist with 10 years of experience" src="https://placehold.co/100x100"/>
+     <div class="doctor-info">
+      <h3>
+       Dr. John Doe
+      </h3>
+      <p>
+       Specialty: Cardiology
+      </p>
+      <p>
+       Experience: 10 years
+      </p>
+     </div>
+    </div>
+    <div class="doctor-item">
+     <img alt="Portrait of Dr. Jane Smith, a neurologist with 8 years of experience" src="https://placehold.co/100x100"/>
+     <div class="doctor-info">
+      <h3>
+       Dr. Jane Smith
+      </h3>
+      <p>
+       Specialty: Neurology
+      </p>
+      <p>
+       Experience: 8 years
+      </p>
+     </div>
+    </div>
+    <div class="doctor-item">
+     <img alt="Portrait of Dr. Emily Johnson, a pediatrician with 5 years of experience" src="https://placehold.co/100x100"/>
+     <div class="doctor-info">
+      <h3>
+       Dr. Emily Johnson
+      </h3>
+      <p>
+       Specialty: Pediatrics
+      </p>
+      <p>
+       Experience: 5 years
+      </p>
+     </div>
+    </div>
+    <div class="doctor-item">
+     <img alt="Portrait of Dr. Michael Brown, an orthopedic surgeon with 12 years of experience" src="https://placehold.co/100x100"/>
+     <div class="doctor-info">
+      <h3>
+       Dr. Michael Brown
+      </h3>
+      <p>
+       Specialty: Orthopedic Surgery
+      </p>
+      <p>
+       Experience: 12 years
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
