@@ -1,0 +1,385 @@
+{% extends "master.html" %}
+
+{%block header%}
+    {% include '../includes/header.html' %}
+{%endblock%}
+
+{%block container%} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+         /* Phần thân /
+.container-xxl {
+    flex: 1; / Chiếm không gian còn lại /
+     padding: 20px; / Khoảng cách cho nội dung */
+}
+{% comment %} bảng giá 1 {% endcomment %}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.banggia {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background:rgb(21, 106, 190);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.discount {
+    color: red;
+    font-weight: bold;
+}
+
+.sale {
+    background: yellow;
+    padding: 2px 5px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.price-link {
+    text-decoration: none;
+    color:rgb(58, 132, 218); /* Màu xanh lá */
+    font-weight: bold;
+}
+
+.price-link:hover {
+    color:rgb(36, 30, 122); /* Đổi màu khi di chuột */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Phần thân -->
+    <div class="container-xxl">
+        {% comment %} bảng giá 1 {% endcomment %}
+        <div class="banggia">
+            <h1>Bảng giá dịch vụ làm răng mới nhất 2025</h1>
+            <label for="service-filter">Chọn dịch vụ:</label>
+            <select id="service-filter">
+                <option value="all">Tất cả dịch vụ</option>
+                <option value="niềng-răng">Niềng răng</option>
+                <option value="trongrangimplant">Trồng răng Implant</option>
+                <option value="nhakhoatongquat">Nha khoa tổng quát</option>
+                <option value="nhakhoathammy">Nha khoa thẩm mỹ</option>
+                <option value="nhakhoatreem">Nha khoa trẻ em</option>
+            </select>
+    {% comment %} bảng 1 {% endcomment %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Niềng răng</th>
+                        <th>Giá</th>
+                        <th>Đơn vị tính</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="price-table">
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ tự động</td>
+                        <td>57.000.000đ - 72.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ/pha lê</td>
+                        <td>39.000.000đ - 58.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Essentials by Invisalign</td>
+                        <td class="discount">50.400.000đ - 56.050.000đ <span class="sale">(-5%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Invisalign Lite</td>
+                        <td class="discount">54.750.000đ - 57.750.000đ <span class="sale">(-25%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            {% comment %} bảng 2 {% endcomment %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trồng Răng Implant</th>
+                        <th>Giá</th>
+                        <th>Đơn vị tính</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="price-table">
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ tự động</td>
+                        <td>57.000.000đ - 72.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ/pha lê</td>
+                        <td>39.000.000đ - 58.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Essentials by Invisalign</td>
+                        <td class="discount">50.400.000đ - 56.050.000đ <span class="sale">(-5%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Invisalign Lite</td>
+                        <td class="discount">54.750.000đ - 57.750.000đ <span class="sale">(-25%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            {% comment %} bảng 3 {% endcomment %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nha Khoa Tổng Quát</th>
+                        <th>Giá</th>
+                        <th>Đơn vị tính</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="price-table">
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ tự động</td>
+                        <td>57.000.000đ - 72.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ/pha lê</td>
+                        <td>39.000.000đ - 58.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Essentials by Invisalign</td>
+                        <td class="discount">50.400.000đ - 56.050.000đ <span class="sale">(-5%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Invisalign Lite</td>
+                        <td class="discount">54.750.000đ - 57.750.000đ <span class="sale">(-25%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            {% comment %} bảng 4 {% endcomment %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nha Khoa Thẩm Mỹ</th>
+                        <th>Giá</th>
+                        <th>Đơn vị tính</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="price-table">
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ tự động</td>
+                        <td>57.000.000đ - 72.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ/pha lê</td>
+                        <td>39.000.000đ - 58.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Essentials by Invisalign</td>
+                        <td class="discount">50.400.000đ - 56.050.000đ <span class="sale">(-5%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Invisalign Lite</td>
+                        <td class="discount">54.750.000đ - 57.750.000đ <span class="sale">(-25%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            {% comment %} Bảng 5 {% endcomment %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nha Khoa Trẻ Em</th>
+                        <th>Giá</th>
+                        <th>Đơn vị tính</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="price-table">
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ tự động</td>
+                        <td>57.000.000đ - 72.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="niềng-răng">
+                        <td>Niềng răng mắc cài sứ/pha lê</td>
+                        <td>39.000.000đ - 58.000.000đ</td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Essentials by Invisalign</td>
+                        <td class="discount">50.400.000đ - 56.050.000đ <span class="sale">(-5%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                    <tr class="invisalign">
+                        <td>Gói niềng trong suốt Invisalign Lite</td>
+                        <td class="discount">54.750.000đ - 57.750.000đ <span class="sale">(-25%)</span></td>
+                        <td>Lần</td>
+                        <td><a href="#" class="price-link">Chi tiết</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ <script>
+    document.getElementById("service-filter").addEventListener("change", function () {
+        let selectedCategory = this.value;
+        let rows = document.querySelectorAll("#price-table tr");
+    
+        rows.forEach(row => {
+            if (selectedCategory === "all") {
+                row.style.display = "";
+            } else {
+                row.style.display = row.classList.bangia(selectedCategory) ? "" : "none";
+            }
+        });
+    });
+    
+</script> 
+<script>
+    document.getElementById("service-filter").addEventListener("change", function() {
+        let selectedValue = this.value;
+        let tables = document.querySelectorAll(".banggia table");
+        
+        tables.forEach(table => {
+            table.style.display = "none"; // Ẩn tất cả bảng
+        });
+        
+        if (selectedValue === "all") {
+            tables.forEach(table => {
+                table.style.display = "table"; // Hiển thị tất cả bảng
+            });
+        } else {
+            let targetTable;
+            switch (selectedValue) {
+                case "niềng-răng":
+                    targetTable = tables[0];
+                    break;
+                case "trongrangimplant":
+                    targetTable = tables[1];
+                    break;
+                case "nhakhoatongquat":
+                    targetTable = tables[2];
+                    break;
+                case "nhakhoathammy":
+                    targetTable = tables[3];
+                    break;
+                case "nhakhoatreem":
+                    targetTable = tables[4];
+                    break;
+            }
+            if (targetTable) {
+                targetTable.style.display = "table";
+            }
+        }
+    });
+    
+</script>
+</body>
+</html>
+{%endblock%}
+{%block footer%}
+    {% include '../includes/footer.html' %}
+{%endblock%}
+{%block icons%}
+{% include '../includes/icons.html' %}
+{%endblock%}
+
+
