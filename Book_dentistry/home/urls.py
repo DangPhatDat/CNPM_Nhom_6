@@ -23,9 +23,10 @@ urlpatterns = [
     path('uudai', views.uudai, name='uudai'),
     path('dkphongkham', views.dkphongkham, name='dkphongkham'),
     path('benhnhan', views.benhnhan, name='benhnhan'),
-    path('quanlibs', views.quanlibs, name='quanlibs'),
-    path('trangchubs', views.trangchubs, name='trangchubs'),
-
+    path('chuphongkham', views.chuphongkham, name='chuphongkham'),
+    path("quanlibacsi/", views.quanlibacsi, name="quanlibacsi"),
+    path('submit-appointment/', views.submit_appointment, name='submit_appointment'),
+    path('dangnhapchuphongkham/', views.dangnhapchuphongkham, name='dangnhapchuphongkham'),
 ]
 
  

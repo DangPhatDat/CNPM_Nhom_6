@@ -41,3 +41,27 @@ class Dentistry:
             print(f"Service '{service}' has been removed.")
         else:
             print(f"Service '{service}' does not exist.")
+    
+    from django.db import models
+
+class Clinic(models.Model):
+    name = models.CharField(max_length=100)        # Tên phòng khám
+    address = models.TextField()                   # Địa chỉ phòng khám
+    phone = models.CharField(max_length=20)         # Số điện thoại
+    license = models.CharField(max_length=50, default='pending')  # Giá trị mặc định      # Giấy phép hoạt động
+    # Các trường khác (nếu có) như email, ngày thành lập, v.v.
+
+    def __str__(self):
+        return self.name
+from django.db import models
+
+class Appointment(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    date = models.DateField()
+    time = models.TimeField()
+    service = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.service}"

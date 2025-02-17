@@ -1,4 +1,5 @@
 {% extends "master.html" %}
+{% load static %}
 
 {% block header %}
     {% include '../includes/header.html' %}
@@ -14,53 +15,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Booking</title>
+    <title>Đặt Lịch Hẹn | Nha Khoa Sunshine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body { 
-            font-family: 'Roboto', 
-            sans-serif; margin: 0; 
-            padding: 0; box-sizing: 
-            border-box; 
-        } 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
         
         .booking-container {
             width: 100%;
-            max-width: 500px;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 60px auto;
+            max-width: 600px;
+            border: 1px solid #e0e0e0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 80px auto;
+            background-color: white;
         }
         
         h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
             text-align: center;
+            color: #2d3748;
+        }
+        
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #34d399;
+        }
+        
+        .alert-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #f87171;
         }
         
         .booking-form {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .booking-form label {
             display: block;
             font-size: 14px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
         }
         
-        .booking-form input,  .booking-form select {
+        .booking-form input, 
+        .booking-form select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
             font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .booking-form input:focus, 
+        .booking-form select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
         }
         
         .booking-button {
@@ -68,10 +100,12 @@
             background-color: #007bff;
             color: white;
             font-size: 16px;
-            padding: 10px;
+            font-weight: 600;
+            padding: 14px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .booking-button:hover {
@@ -83,37 +117,69 @@
 <body>
     <div class="booking-container">
         <div class="booking-form-container">
-            <h2>Đặt Lịch Hẹn</h2>
-            <form action="/submit-appointment" method="POST">
+            <h2>📅 Đặt Lịch Hẹn</h2>
+            
+            <!-- Hiển thị thông báo lỗi/thành công -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            <form action="{% url 'submit_appointment' %}" method="POST">
+                {% csrf_token %}
+                
                 <div class="booking-form">
-                    <label for="name">Họ và Tên</label>
-                    <input id="name" name="name" type="text" placeholder="Nhập họ và tên" required>
+                    <label for="name">👤 Họ và Tên</label>
+                    <input id="name" name="name" type="text" 
+                           placeholder="Ví dụ: Nguyễn Văn A" 
+                           required
+                           pattern="[A-Za-zÀ-ỹ\s]+"
+                           title="Vui lòng nhập tên hợp lệ (không chứa số hoặc ký tự đặc biệt)">
                 </div>
+                
                 <div class="booking-form">
-                    <label for="phone">Số Điện Thoại</label>
-                    <input id="phone" name="phone" type="text" placeholder="Nhập số điện thoại" required>
+                    <label for="phone">📱 Số Điện Thoại</label>
+                    <input id="phone" name="phone" type="tel" 
+                           placeholder="Ví dụ: 0912345678" 
+                           required
+                           pattern="0[0-9]{9}"
+                           title="Số điện thoại phải bắt đầu bằng 0 và có 10 chữ số">
                 </div>
+                
                 <div class="booking-form">
-                    <label for="date">Ngày Hẹn</label>
-                    <input id="date" name="date" type="date" required>
+                    <label for="date">📅 Ngày Hẹn</label>
+                    <input id="date" name="date" type="date" 
+                           required
+                           min="{{ today|date:'Y-m-d' }}">
                 </div>
+                
                 <div class="booking-form">
-                    <label for="time">Giờ Hẹn</label>
-                    <input id="time" name="time" type="time" required>
+                    <label for="time">⏰ Giờ Hẹn</label>
+                    <input id="time" name="time" type="time" 
+                           required
+                           min="08:00" 
+                           max="17:00">
                 </div>
+                
                 <div class="booking-form">
-                    <label for="service">Chọn Dịch Vụ</label>
-                    <select id="service" name="service">
-                        <option value="" disabled selected>Chọn dịch vụ...</option>
-                        <option value="Trồng răng Implant">Trồng răng implant</option>
-                        <option value="nieng rang">Niềng răng</option>
-                        <option value="nha khoa tong quat">Nha khoa tổng quát</option>
-                        <option value="nha khoa tham my">Nha khoa thẩm mỹ</option>
-                        <option value="nha khoa tre em">Nha khoa trẻ em</option>
+                    <label for="service">💼 Chọn Dịch Vụ</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>-- Chọn dịch vụ --</option>
+                        <option value="Trồng răng Implant">🦷 Trồng răng Implant</option>
+                        <option value="Niềng răng">🦷 Niềng răng</option>
+                        <option value="Nha khoa tổng quát">🦷 Nha khoa tổng quát</option>
+                        <option value="Nha khoa thẩm mỹ">🦷 Nha khoa thẩm mỹ</option>
+                        <option value="Nha khoa trẻ em">👶 Nha khoa trẻ em</option>
                     </select>
                 </div>
+                
                 <div class="booking-form">
-                    <button type="submit"class="booking-button">Đặt Lịch</button>
+                    <button type="submit" class="booking-button">
+                        <i class="fas fa-calendar-check mr-2"></i> Xác Nhận Đặt Lịch
+                    </button>
                 </div>
             </form>
         </div>

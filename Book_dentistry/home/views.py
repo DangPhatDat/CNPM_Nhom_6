@@ -3,8 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-
-
 def trangchu(request):
     if request.method == "POST":
         pass
@@ -126,7 +124,7 @@ def nhakhoatongquat(request):
     }
     return HttpResponse (template.render(context, request))
 
-    return HttpResponse (template.render(context, request))
+   
 
 def nhakhoathammy(request):
     if request.method == "POST":
@@ -188,22 +186,67 @@ def benhnhan(request):
     }
     return HttpResponse (template.render(context, request))
 
-def quanlibs(request):
+
+def quanlibacsi(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/quanlibacsi.html')
+    template = loader.get_template('home/quanli-bacsi.html')
     context = {
 
     }
     return HttpResponse (template.render(context, request))
 
-def trangchubs(request):
+
+def chuphongkham(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/trangchu-bacsi.html.html')
+    template = loader.get_template('home/chuphongkham.html')
     context = {
 
     }
     return HttpResponse (template.render(context, request))
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Appointment  # Tạo model Appointment trước
+
+def submit_appointment(request):
+    if request.method == 'POST':
+        try:
+            # Lấy dữ liệu từ form
+            name = request.POST.get('name')
+            phone = request.POST.get('phone')
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            service = request.POST.get('service')
+
+            # Lưu vào database
+            Appointment.objects.create(
+                name=name,
+                phone=phone,
+                date=date,
+                time=time,
+                service=service
+            )
+
+            messages.success(request, 'Đặt lịch thành công!')
+            return redirect('datlich')  # Chuyển hướng về trang đặt lịch
+        except Exception as e:
+            messages.error(request, f'Lỗi: {str(e)}')
+            return redirect('datlich')
+    else:
+        return redirect('datlich')
+
+
+def dangnhapchuphongkham(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/dangnhapchuphongkham.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
