@@ -15,10 +15,10 @@
     <title>Đăng Ký</title>
     <style>
         body { 
-            font-family: 'Roboto', 
-            sans-serif; margin: 0; 
-            padding: 0; box-sizing: 
-            border-box; 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
         }
 
         /* Container chính */
@@ -99,12 +99,24 @@
             text-decoration: underline;
         }
 
+        /* Thông báo lỗi */
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Thông báo thành công */
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="register-container">
         <h1 class="title">Đăng Ký</h1>
-        <form class="register-form" action="#" method="POST">
+        <form class="register-form" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
             <label for="name">Họ và Tên</label>
             <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
 
@@ -123,12 +135,17 @@
             <button type="submit" class="register-button">Đăng Ký</button>
         </form>
         <div class="links">
-            <a href="dangnhap">Đã có tài khoản? Đăng nhập.</a>
+            <a href="{% url 'dangnhap' %}">Đã có tài khoản? Đăng nhập.</a>
         </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{% if message.tags %}{{ message.tags }}-message{% endif %}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
     </div>
 </body>
 </html>
-
 {%endblock%}
 
 

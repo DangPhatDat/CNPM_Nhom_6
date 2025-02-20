@@ -65,3 +65,16 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.service}"
+    
+    # models.py
+from django.db import models
+from django.contrib.auth.models import User
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)  # Trường để lưu họ và tên
+    phone = models.CharField(max_length=15, blank=True, null=True)  # Trường để lưu số điện thoại
+    email = models.EmailField(blank=True, null=True)  # Trường để lưu email (có thể để trống)
+
+    def __str__(self):
+        return self.name  # Trả về tên người dùng khi gọi đối tượng UserProfile

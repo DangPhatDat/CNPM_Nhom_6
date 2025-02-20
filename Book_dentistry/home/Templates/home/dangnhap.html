@@ -15,115 +15,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang của tôi</title>
+    <title>Đăng Nhập</title>
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            background-color: #f4f4f4; /* Màu nền */
+        }
+
+        /* Container chính */
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #ddd; /* Thêm khung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px; /* Điều chỉnh chiều rộng */
+            margin: 60px auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left; /* Căn trái giống hình */
+        }
+        
+        /* Form */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .login-form label {
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        .login-form input[type="email"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            width: 100%; /* Đảm bảo full width */
+            box-sizing: border-box; /* Bao gồm cả padding */
+        }
+        
+        .login-form input[type="email"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: #007bff;
+        }
+        
+        /* Checkbox */
+        .remember-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-align: left;
+        }
+        
+        .login-form input[type="checkbox"] {
+            margin: 0;
+        }
+        
+        /* Button */
+        .login-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Links */
+        .links {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Thêm khoảng cách giữa các liên kết */
+        }
+        
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<style>
-    body { 
-        font-family: 'Roboto', 
-        sans-serif; margin: 0; 
-        padding: 0; box-sizing: 
-        border-box; 
-    }
-    /* Tổng thể */
-    
-    
-    /* Container chính */
-    .login-container {
-        background: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        border: 1px solid #ddd; /* Thêm khung */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 320px; /* Điều chỉnh chiều rộng */
-        margin: 60px auto;
-    }
-    
-    .title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: left; /* Căn trái giống hình */
-    }
-    
-    /* Form */
-    .login-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .login-form label {
-        font-weight: bold;
-        text-align: left;
-    }
-    
-    .login-form input[type="email"],
-    .login-form input[type="password"] {
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        outline: none;
-        width: 100%; /* Đảm bảo full width */
-        box-sizing: border-box; /* Bao gồm cả padding */
-    }
-    
-    .login-form input[type="email"]:focus,
-    .login-form input[type="password"]:focus {
-        border-color: #007bff;
-    }
-    
-    /* Checkbox */
-    .remember-container {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        text-align: left;
-    }
-    
-    .login-form input[type="checkbox"] {
-        margin: 0;
-    }
-    
-    /* Button */
-    .login-button {
-        background-color: #007bff;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    
-    .login-button:hover {
-        background-color: #0056b3;
-    }
-    
-    /* Links */
-    .links {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px; /* Thêm khoảng cách giữa các liên kết */
-    }
-    
-    .links a {
-        color: #007bff;
-        text-decoration: none;
-        font-size: 14px;
-    }
-    
-    .links a:hover {
-        text-decoration: underline;
-    }
-    
-</style>
 <body>
     <div class="login-container">
         <h1 class="title">Đăng Nhập</h1>
-        <form class="login-form" action="#" method="POST">
+        <form class="login-form" action="{% url 'trangchu' %}" method="POST">  <!-- Cập nhật action -->
+            {% csrf_token %}  <!-- Thêm token CSRF -->
+            <input type="hidden" name="next" value="{{ next }}">  <!-- Thêm tham số next -->
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Email" required>
 
@@ -138,8 +138,8 @@
             <button type="submit" class="login-button">Đăng Nhập</button>
         </form>
         <div class="links">
-            <a href="quenmatkhau">Quên mật khẩu?</a>
-            <a href="dangky">Tạo tài khoản mới.</a>
+            <a href="{% url 'quenmatkhau' %}">Quên mật khẩu?</a>
+            <a href="{% url 'dangky' %}">Tạo tài khoản mới.</a>
         </div>
     </div>
 </body>
