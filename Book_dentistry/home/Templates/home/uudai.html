@@ -134,38 +134,6 @@ section {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
 } 
-{% comment %} /* Phần chuyển trang */ {% endcomment %}
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-.pagination a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 12px;
-    margin: 0 5px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10px;
-    height: 10px;
-}
-.pagination a:hover {
-    background-color: #2980b9;
-    color: white;
-    border-color: #2980b9;
-}
-.pagination a.active {
-    background-color: #2c3e50;
-    color: white;
-    border-color: #2c3e50;
-}
-
 {% comment %} phần lý do {% endcomment %}
 
 .uudaicuoi{
@@ -180,7 +148,67 @@ section {
     color: white;  /* White text for active button */
     font-weight: bold;  /* Make text bold */
 }
+{% comment %} phan hidden {% endcomment %}
+.hidden {
+    display: none !important;
+}
+.hidden-container {
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    position: relative;
+}
+.hidden-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
 
+.hidden-details img {
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.info {
+    flex: 1;
+}
+
+.hidden-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.detail-btn.back-btn {
+    position: absolute;
+    bottom: 15px; /* Cách đáy container 15px */
+    right: 15px; /* Cách mép phải container 15px */
+    background: #f8d7da; /* Màu đỏ nhạt */
+    color:#721c24; /* Màu chữ đỏ đậm */
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 25px; /* Bo tròn góc */
+}
+
+.detail-btn.back-btn:hover {
+    background: #f1b0b7; /* Đổi sang màu hồng nhạt khi hover */
+    color: #721c24; /* Màu chữ không đổi để dễ đọc */
+}
+{% comment %} javascript {% endcomment %}
+.active {
+    background-color:rgb(98, 142, 218);  /* Blue background for active button */
+    color: white;  /* White text for active button */
+    font-weight: bold;  /* Make text bold */
+}
     </style>
 </head>
 <body>
@@ -199,73 +227,81 @@ section {
         <main>
             <section class="product-grid">
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Go%CC%81i-nie%CC%82%CC%80ng-ra%CC%86ng-ma%CC%86%CC%81c-ca%CC%80i-su%CC%9B%CC%81-tu%CC%9B%CC%A3-do%CC%A3%CC%82ng-Mu%CC%9B%CC%81c-do%CC%A3%CC%821-1.jpg.webp" alt="">
-                        <h4>Niềng răng mắc cài sứ tự động</h4>
-                        <p class="category">Niềng răng mắc cài truyền thống</p>
-                        <p class="price">Giảm còn 48.450.000đ - 65.000.000đ
-                    </p>
+                        <img src="whitening.jpg" alt="">
+                        <h4>Gói Zen – Implant Straumann BLX SLActive + Răng sứ Zirconia DMax/</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">34.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Go%CC%81i-nie%CC%82%CC%80ng-ra%CC%86ng-ma%CC%86%CC%81c-ca%CC%80i-su%CC%9B%CC%81-tu%CC%9B%CC%A3-do%CC%A3%CC%82ng-Mu%CC%9B%CC%81c-do%CC%A3%CC%823-scaled.jpg.webp" alt="">
-                        <h4>Niềng răng mắc cài sứ/pha lê</h4>
-                        <p class="category">Niềng răng mắc cài truyền thống</p>
-                        <p class="price">Giảm còn 33.150.000đ - 53.000.000đ</p>
+                        <img src="wisdom-tooth.jpg" alt="">
+                        <h4>Gói Zen – Implant Straumann BLT SLActive + Răng sứ Zirconia DMax/ DDBIO</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">30.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
 
                     <div class="service-box">
-                        <img src="https://th.bing.com/th?id=OIP.BeyiePDpBMgN4LPsni41mwHaFR&w=296&h=210&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
-                        <h4>Niềng răng mắc cài kim loại tự động
+                        <img src="wisdom-tooth.jpg" alt="">
+                        <h4>Gói Zen – Implant Straumann BLT SLA + Răng sứ Zirconia DMax/ DDBIO
                         </h4>
-                        <p class="category">Niềng răng mắc cài truyền thống</p>
-                        <p class="price">Giảm còn 27.000.000đ</p>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">27.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
         
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Go%CC%81i-nie%CC%82%CC%80ng-ra%CC%86ng-ma%CC%86%CC%81c-ca%CC%80i-kim-loa%CC%A3i-tu%CC%9B%CC%A3-do%CC%A3%CC%82ng-tie%CC%82%CC%81t-kie%CC%A3%CC%82m-Mu%CC%9B%CC%81c-do%CC%A3%CC%82-1-2048x1365.jpg.webp" alt="">
-                        <h4>Niềng răng mắc cài truyền thống</h4>
-                        <p class="category">Niềng răng mắc cài truyền thống</p>
-                        <p class="price">Giảm còn 31.450.000đ - 50.000.000đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Gói Zen – Implant Neodent Acqua + Răng sứ Zirconia DMax/ DDBIO</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">20.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Go%CC%81i-nie%CC%82%CC%80ng-ra%CC%86ng-ma%CC%86%CC%81c-ca%CC%80i-kim-loa%CC%A3i-tie%CC%82%CC%81t-kie%CC%A3%CC%82m-Mu%CC%9B%CC%81c-do%CC%A3%CC%82-1-1.jpeg.webp" alt="">
-                        <h4>Niềng răng mắc cài kim loại</h4>
-                        <p class="category">Niềng răng mắc cài kim loại</p>
-                        <p class="price">Giảm còn 26.350.000đ - 42.000.000đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Gói Zen – Implant Dentium Super Line/ NR line/ SlimLine + Răng sứ Zirconia DMax/ DDBIO</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">16.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/04/shutterstock_2041855640.jpg.webp" alt="">
-                        <h4>Gói niềng trong suốt Essentials by Invisalign</h4>
-                        <p class="category">Niềng răng trong suốt Invisalign</p>
-                        <p class="price">Giảm còn 45.000.000đ - 49.000.000đ</p>
+                        <img src="invisalign.jpg" alt="">
+                        <h4>Trụ Implant Straumann BLT SLActive</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">49.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/04/Invisalign-trays.jpg.webp" alt="">
-                        <h4>Gói niềng trong suốt Essentials by Invisalign một hàm</h4>
-                        <p class="category">Niềng răng trong suốt Invisalign</p>
-                        <p class="price">Giảm còn 45.000.000đ - 47.500.000đ</p>
+                        <img src="whitening.jpg" alt="">
+                        <h4>Trụ Implant Straumann BLT SLA</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price">39.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
                     <div class="service-box">
-                        <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/03/Go%CC%81i-di%CC%A3ch-vu%CC%A3-can-thie%CC%A3%CC%82p-so%CC%9B%CC%81m-ca%CC%81c-le%CC%A3%CC%82ch-la%CC%A3c-ve%CC%82%CC%80-xu%CC%9Bo%CC%9Bng.jpg.webp" alt="">
-                        <h4>Gói can thiệp sớm các lệch lạc tiền tăng trưởng – 2 năm</h4>
-                        <p class="category">Niềng răng trẻ em</p>
-                        <p class="price"> Giảm còn 15.300.000đ - 19.950.000đ</p>
+                        <img src="whitening.jpg" alt="">
+                        <h4>Trụ Implant Neodent Acqua</h4>
+                        <p class="category">Trồng răng Implant</p>
+                        <p class="price"> 27.000.000đ</p>
                         <a href="#" class="detail-btn">Xem chi tiết</a>
                     </div>
-                    
                 </section >
-                  <!-- Phần chuyển trang -->
-        <div class="pagination">
-            <a href=""class="active">1</a>
-            <a href="">2</a>
-        </div>
+                 <!-- Chi tiết sản phẩm (Ẩn mặc định) -->
+            <section id="product-detail" class="hidden">
+                <div class="hidden-container">
+                    <h2 id="detail-title"></h2>
+                    <div class="hidden-details">
+                        <img id="hidden-detail img" src="" alt="Sản phẩm">
+                        <div class="info">
+                            <span  id="hidden-price" class="price"></span>
+                            <p><strong>Dịch vụ:</strong> Trồng răng Implant</p>
+                             <a href="datlich" class="detail-btn"> Đặt lịch ngay</a> 
+                             <button class="detail-btn back-btn" onclick="backToList()">Quay lại</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>  
        
         {% comment %} Ưu đãi cuối{% endcomment %}
@@ -314,7 +350,41 @@ section {
                 updateActiveButton(sortDescBtn);
             });
         });
-        
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const detailSection = document.getElementById("product-detail");
+            const detailTitle = document.getElementById("detail-title");
+            const detailImage = document.getElementById("hidden-detail img");
+            const detailPrice = document.getElementById("hidden-price");
+            const productList = document.querySelector(".product-grid");
+            const detailButtons = document.querySelectorAll(".detail-btn");
+            
+            // Thêm sự kiện click cho mỗi nút "Xem chi tiết"
+            detailButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    
+                    const serviceBox = this.closest(".service-box");
+                    const title = serviceBox.querySelector("h4").innerText;
+                    const imageSrc = serviceBox.querySelector("img").src;
+                    const price = serviceBox.querySelector(".price").innerText;
+                    
+                    detailTitle.innerText = title;
+                    detailImage.src = imageSrc;
+                    detailPrice.innerText = price;
+                    
+                    detailSection.classList.remove("hidden");
+                    productList.classList.add("hidden");
+                });
+            });
+            
+            // Quay lại danh sách sản phẩm
+            window.backToList = function () {
+                detailSection.classList.add("hidden");
+                productList.classList.remove("hidden");
+            };
+        });
     </script>
 </body>
 </html>
