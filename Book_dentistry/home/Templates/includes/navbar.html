@@ -1,0 +1,38 @@
+<nav class="navbar">
+    <h1>Phòng Khám Sunshine</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul id="navbar-menu">
+        <li>
+            <a href="#">
+                <i class="fas fa-home"></i>
+                Trang Chủ
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-user-md"></i>
+                Bác Sĩ
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-procedures"></i>
+                Bệnh Nhân
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fas fa-calendar-alt"></i>
+                Cuộc Hẹn
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'dangnhapchuphongkham' %}" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                Đăng Xuất
+            </a>
+        </li>
+    </ul>
+</nav>

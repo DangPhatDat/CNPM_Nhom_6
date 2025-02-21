@@ -1,0 +1,206 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bảng Điều Khiển Phòng Khám</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            .navbar {
+                background-color: #007bff;
+                color: white;
+                padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+            .navbar h1 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+            .navbar ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+            }
+            .navbar ul li {
+                margin-left: 1.5rem;
+            }
+            .navbar ul li a {
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: opacity 0.3s ease;
+            }
+            .navbar ul li a:hover {
+                opacity: 0.8;
+            }
+            .login-btn {
+                background: #28a745;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: transform 0.3s ease;
+            }
+            .login-btn:hover {
+                transform: translateY(-2px);
+            }
+            .main-content {
+                padding: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .card {
+                background-color: white;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            .card h2 {
+                color: #2d3748;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                font-size: 1.25rem;
+            }
+            .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            .card p {
+                color: #4a5568;
+                line-height: 1.6;
+            }
+            .menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+            }
+            @media (max-width: 768px) {
+                .navbar ul {
+                    display: none;
+                }
+                .navbar ul.open {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background-color: #007bff;
+                    padding: 1rem;
+                    gap: 1rem;
+                }
+                .menu-toggle {
+                    display: block;
+                }
+                .navbar ul li {
+                    margin-left: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <h1>Phòng Khám Sunshine</h1>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="navbar-menu">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        Trang Chủ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-md"></i>
+                        Bác Sĩ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-procedures"></i>
+                        Bệnh Nhân
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-calendar-alt"></i>
+                        Cuộc Hẹn
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'dangnhapchuphongkham' %}" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Đăng Xuất
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section class="card">
+                <h2>Tổng Quan</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <p class="text-lg font-semibold">👨⚕️ Bác Sĩ</p>
+                        <p class="text-2xl">15</p>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold">👥 Bệnh Nhân</p>
+                        <p class="text-2xl">120</p>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold">📅 Cuộc Hẹn</p>
+                        <p class="text-2xl">45</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Quản Lý Bác Sĩ</h2>
+                <img src="https://placehold.co/600x400" alt="Đội ngũ bác sĩ">
+                <p>Quản lý thông tin chi tiết về các bác sĩ đang làm việc tại phòng khám.</p>
+            </section>
+
+            <section class="card">
+                <h2>Quản Lý Bệnh Nhân</h2>
+                <img src="https://placehold.co/600x400" alt="Hồ sơ bệnh nhân">
+                <p>Theo dõi và cập nhật hồ sơ bệnh nhân một cách hệ thống.</p>
+            </section>
+
+            <section class="card">
+                <h2>Lịch Hẹn</h2>
+                <img src="https://placehold.co/600x400" alt="Lịch làm việc">
+                <p>Quản lý lịch hẹn và phân bổ thời gian hợp lý cho các ca khám.</p>
+            </section>
+        </main>
+
+        <script>
+            function toggleMenu() {
+                const navbarMenu = document.getElementById('navbar-menu');
+                navbarMenu.classList.toggle('open');
+            }
+        </script>
+    </body>
+    </html>

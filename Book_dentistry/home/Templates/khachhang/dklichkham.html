@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Lịch Khám</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Đường dẫn đến file CSS nếu có -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="datetime-local"],
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Đăng Ký Lịch Khám</h2>
+    <form method="POST" action="{% url 'success' %}">
+        {% csrf_token %}
+        
+        <label for="appointment_date">Ngày và Giờ Khám:</label>
+        <input type="datetime-local" id="appointment_date" name="appointment_date" required>
+
+        <label for="is_recurring">Lịch Khám Định Kỳ:</label>
+        <select id="is_recurring" name="is_recurring">
+            <option value="False">Không</option>
+            <option value="True">Có</option>
+        </select>
+
+        <div id="recurrence_options" style="display: none;">
+            <label for="recurrence_frequency">Tần Suất Khám:</label>
+            <select id="recurrence_frequency" name="recurrence_frequency">
+                <option value="monthly">Hàng Tháng</option>
+                <option value="weekly">Hàng Tuần</option>
+                <option value="biweekly">Hai Tuần Một Lần</option>
+            </select>
+
+            <label for="duration_months">Thời Gian Điều Trị (Tháng):</label>
+            <input type="number" id="duration_months" name="duration_months" min="1" max="12" placeholder="Nhập số tháng" required>
+        </div>
+
+        <button type="submit">Đăng Ký</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('is_recurring').addEventListener('change', function() {
+        var recurrenceOptions = document.getElementById('recurrence_options');
+        if (this.value === 'True') {
+            recurrenceOptions.style.display = 'block';
+        } else {
+            recurrenceOptions.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -119,82 +119,13 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <h1>Phòng Khám Sunshine</h1>
-        <button class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul id="navbar-menu">
-            <li>
-                <a href="#">
-                    <i class="fas fa-home"></i>
-                    Trang Chủ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-user-md"></i>
-                    Bác Sĩ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-procedures"></i>
-                    Bệnh Nhân
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-calendar-alt"></i>
-                    Cuộc Hẹn
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'dangnhapchuphongkham' %}" class="login-btn">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Đăng Nhập
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <main class="main-content">
-        <section class="card">
-            <h2>Tổng Quan</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                    <p class="text-lg font-semibold">👨⚕️ Bác Sĩ</p>
-                    <p class="text-2xl">15</p>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold">👥 Bệnh Nhân</p>
-                    <p class="text-2xl">120</p>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold">📅 Cuộc Hẹn</p>
-                    <p class="text-2xl">45</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Quản Lý Bác Sĩ</h2>
-            <img src="https://placehold.co/600x400" alt="Đội ngũ bác sĩ">
-            <p>Quản lý thông tin chi tiết về các bác sĩ đang làm việc tại phòng khám.</p>
-        </section>
-
-        <section class="card">
-            <h2>Quản Lý Bệnh Nhân</h2>
-            <img src="https://placehold.co/600x400" alt="Hồ sơ bệnh nhân">
-            <p>Theo dõi và cập nhật hồ sơ bệnh nhân một cách hệ thống.</p>
-        </section>
-
-        <section class="card">
-            <h2>Lịch Hẹn</h2>
-            <img src="https://placehold.co/600x400" alt="Lịch làm việc">
-            <p>Quản lý lịch hẹn và phân bổ thời gian hợp lý cho các ca khám.</p>
-        </section>
-    </main>
+    {%block navbar%}
+    {%endblock%}
+   
+    {%block content%}
+    {%endblock%}
+   
+   
 
     <script>
         function toggleMenu() {

@@ -204,11 +204,11 @@ def quanlibacsi(request):
     return HttpResponse (template.render(context, request))
 
 
-def chuphongkham(request):
+def trangchubacsi(request):
     if request.method == "POST":
         pass
 
-    template = loader.get_template('home/chuphongkham.html')
+    template = loader.get_template('home/trangchubacsi.html')
     context = {
 
     }
@@ -320,3 +320,125 @@ def login_view(request):
         form = AuthenticationForm()
 
     return render(request, 'home/dangnhap.html', {'form': form, 'next': next_url})
+
+# doctors/views.py
+
+
+# View thêm bác sĩ mới
+from django.shortcuts import render, redirect
+from .models import Doctor
+
+def add_doctor(request):
+    if request.method == 'POST':
+        name = request.POST.get('doctor-name')
+        specialty = request.POST.get('doctor-specialty')
+        experience = request.POST.get('doctor-experience')
+
+        # Kiểm tra nếu đã nhập đầy đủ thông tin
+        if name and specialty and experience:
+            # Tạo đối tượng Doctor và lưu vào database
+            doctor = Doctor(name=name, specialty=specialty, experience=int(experience))
+            doctor.save()
+
+            # Sau khi lưu, chuyển hướng về trang danh sách bác sĩ
+            return redirect('doctor_list')
+
+    # Nếu là GET hoặc nhập thiếu thông tin, hiển thị lại trang thêm bác sĩ
+    return render(request, 'add_doctor.html')
+
+
+
+def add_doctor(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/add_doctor.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def doctor_list(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/doctor_list.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def dkphongkham(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('chuphongkham/dkphongkham.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+from django.shortcuts import render, redirect
+from .forms import ClinicForm
+from .models import Clinic
+
+def dkphongkham(request):
+    if request.method == 'POST':
+        form = ClinicForm(request.POST)
+        if form.is_valid():
+            form.save()  # Lưu thông tin vào cơ sở dữ liệu
+            return redirect('dkphongkham')  # Redirect để tránh gửi lại form
+    else:
+        form = ClinicForm()
+
+    clinics = Clinic.objects.all()  # Lấy tất cả phòng khám từ database
+    return render(request, 'chuphongkham/dkphongkham.html', {'form': form, 'clinics': clinics})
+
+# views.py
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import CuochenCT, Customer
+
+@login_required
+def dklichkham(request):
+    if request.method == 'POST':
+        appointment_date = request.POST.get('appointment_date')
+        is_recurring = request.POST.get('is_recurring') == 'True'
+        recurrence_frequency = request.POST.get('recurrence_frequency', '')
+        duration_months = request.POST.get('duration_months', None)
+
+        # Lưu lịch khám vào cơ sở dữ liệu
+        customer = Customer.objects.get(user=request.user)
+        cuochen = CuochenCT(
+            customer=customer,
+            appointment_date=appointment_date,
+            is_recurring=is_recurring,
+            recurrence_frequency=recurrence_frequency,
+            duration_months=duration_months
+        )
+        cuochen.save()
+
+        # Chuyển hướng đến trang thành công hoặc trang khác
+        return redirect('success_page')  # Thay 'success_page' bằng tên URL bạn muốn chuyển hướng đến
+
+    return render(request, 'dklichkham.html')
+
+def dklichkham(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('khachhang/dklichkham.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
+def success_page(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('khachhang/success.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))

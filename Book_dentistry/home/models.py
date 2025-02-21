@@ -42,17 +42,7 @@ class Dentistry:
         else:
             print(f"Service '{service}' does not exist.")
     
-    from django.db import models
-
-class Clinic(models.Model):
-    name = models.CharField(max_length=100)        # Tên phòng khám
-    address = models.TextField()                   # Địa chỉ phòng khám
-    phone = models.CharField(max_length=20)         # Số điện thoại
-    license = models.CharField(max_length=50, default='pending')  # Giá trị mặc định      # Giấy phép hoạt động
-    # Các trường khác (nếu có) như email, ngày thành lập, v.v.
-
-    def __str__(self):
-        return self.name
+ 
 from django.db import models
 
 class Appointment(models.Model):
@@ -69,6 +59,8 @@ class Appointment(models.Model):
     # models.py
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from datetime import timedelta
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -78,3 +70,70 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.name  # Trả về tên người dùng khi gọi đối tượng UserProfile
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=100)
+    specialty = models.CharField(max_length=100)
+    experience = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+class Clinic(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField(default='', blank=True)  # Cung cấp giá trị mặc định là chuỗi rỗng
+    website = models.URLField(default='', blank=True)  # Cung cấp giá trị mặc định là chuỗi rỗng
+
+    def __str__(self):
+        return self.name
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.user.username
+
+class CuochenCT(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    appointment_date = models.DateTimeField()
+    is_recurring = models.BooleanField(default=False)
+    recurrence_frequency = models.CharField(max_length=50, blank=True, null=True)  # e.g., "monthly"
+    duration_months = models.IntegerField(blank=True, null=True)  # e.g., 12 for 12 months
+
+    def send_reminder(self):
+        reminder_date = self.appointment_date - timedelta(days=1)
+        # Logic to send reminder notification to customer
+        return reminder_date
+
+    def __str__(self):
+        return f"CuochenCT for {self.customer.user.username} on {self.appointment_date}"
+
+class TreatmentPlan(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    dentist = models.ForeignKey('Dentist', on_delete=models.CASCADE)
+    treatment_description = models.TextField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+
+    def __str__(self):
+        return f"Treatment Plan for {self.customer.user.username}"
+
+class Dentist(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    specialization = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user.username
+
+class Message(models.Model):
+    sender = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    recipient = models.ForeignKey(Dentist, on_delete=models.CASCADE)
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.sender.user.username} to {self.recipient.user.username} at {self.timestamp}"

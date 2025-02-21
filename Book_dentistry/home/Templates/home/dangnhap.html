@@ -121,7 +121,7 @@
 <body>
     <div class="login-container">
         <h1 class="title">Đăng Nhập</h1>
-        <form class="login-form" action="{% url 'trangchu' %}" method="POST">  <!-- Cập nhật action -->
+        <form class="login-form" action="{% url 'trangchucustemer' %}" method="POST">  <!-- Cập nhật action -->
             {% csrf_token %}  <!-- Thêm token CSRF -->
             <input type="hidden" name="next" value="{{ next }}">  <!-- Thêm tham số next -->
             <label for="email">Email</label>

@@ -2,8 +2,9 @@
 from django.urls import path
 from . import views
 from .views import register
+from .views import dkphongkham
+from .views import dklichkham, success_page
 urlpatterns = [
-
     path('', views.trangchu, name='trangchu'),
      path('trangchu', views.trangchu, name='trangchu'),
     path('gioithieu', views.gioithieu, name='gioithieu'),
@@ -21,13 +22,13 @@ urlpatterns = [
     path('niengrang', views.niengrang, name='niengrang'),
     path('nhakhoatreem', views.nhakhoatreem, name='nhakhoatreem'),
     path('uudai', views.uudai, name='uudai'),
-    path('dkphongkham', views.dkphongkham, name='dkphongkham'),
     path('benhnhan', views.benhnhan, name='benhnhan'),
-    path('chuphongkham', views.chuphongkham, name='chuphongkham'),
+    path('trangchubacsi', views.trangchubacsi, name='trangchubacsi'),
     path("quanlibacsi/", views.quanlibacsi, name="quanlibacsi"),
     path('submit-appointment/', views.submit_appointment, name='submit_appointment'),
     path('dangnhapchuphongkham/', views.dangnhapchuphongkham, name='dangnhapchuphongkham'),
-    path('register/', views.register, name='register')
+    path('register/', views.register, name='register'),
+    path('dkphongkham/', views.dkphongkham, name='dkphongkham'),
+    path('dklichkham/', views.dklichkham, name='dklichkham'),  # Đổi tên thành dklichkham
+    path('success/', views.success_page, name='success_page'),
 ]
-
- 

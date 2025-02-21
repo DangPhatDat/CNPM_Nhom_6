@@ -1,0 +1,135 @@
+{% extends "master1.html" %}
+{% block navbar %}
+    {% include '../includes/navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Đăng Ký Phòng Khám</h1>
+    <form method="POST" action="{% url 'dkphongkham' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Tên phòng khám:</label>
+            <input type="text" id="name" name="name" required placeholder="Nhập tên phòng khám">
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ:</label>
+            <input type="text" id="address" name="address" required placeholder="Nhập địa chỉ">
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Số điện thoại:</label>
+            <input type="text" id="phone_number" name="phone_number" required placeholder="Nhập số điện thoại">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email">
+        </div>
+        <div class="form-group">
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" placeholder="Nhập URL website">
+        </div>
+        <button type="submit">Đăng ký</button>
+    </form>
+
+    <h2>Danh sách phòng khám đã đăng ký</h2>
+    <ul class="clinic-list">
+        {% for clinic in clinics %}
+            <li class="clinic-item">
+                <strong>Tên:</strong> {{ clinic.name }} <br>
+                <strong>Địa chỉ:</strong> {{ clinic.address }} <br>
+                <strong>Số điện thoại:</strong> {{ clinic.phone_number }} <br>
+                <strong>Email:</strong> {{ clinic.email }} <br>
+                <strong>Website:</strong> <a href="{{ clinic.website }}" target="_blank">{{ clinic.website }}</a>
+            </li>
+        {% empty %}
+            <li>Chưa có phòng khám nào được đăng ký.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    h2 {
+        margin-top: 30px;
+        color: #333;
+    }
+
+    .clinic-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .clinic-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .clinic-item strong {
+        color: #007bff;
+    }
+
+    .clinic-item a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .clinic-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

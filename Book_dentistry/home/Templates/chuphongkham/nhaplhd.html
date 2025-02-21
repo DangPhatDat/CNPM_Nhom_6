@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Lịch Hoạt Động</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Nếu bạn có file CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Nhập Lịch Hoạt Động Phòng Khám</h1>
+        <form method="POST" action="{% url 'luu_lich_hoat_dong' %}"> <!-- Thay 'luu_lich_hoat_dong' bằng URL tương ứng -->
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="gio_mo_cua">Giờ Mở Cửa:</label>
+                <input type="time" id="gio_mo_cua" name="gio_mo_cua" required>
+            </div>
+            <div class="form-group">
+                <label for="gio_dong_cua">Giờ Đóng Cửa:</label>
+                <input type="time" id="gio_dong_cua" name="gio_dong_cua" required>
+            </div>
+            <div class="form-group">
+                <label for="thoi_gian_slot">Thời Gian Slot (phút):</label>
+                <input type="number" id="thoi_gian_slot" name="thoi_gian_slot" value="45" readonly>
+            </div>
+            <div class="form-group">
+                <label for="max_benh_nhan_kham">Số Bệnh Nhân Khám Tối Đa:</label>
+                <input type="number" id="max_benh_nhan_kham" name="max_benh_nhan_kham" value="3" readonly>
+            </div>
+            <div class="form-group">
+                <label for="max_benh_nhan_dieu_tri">Số Bệnh Nhân Điều Trị Tối Đa:</label>
+                <input type="number" id="max_benh_nhan_dieu_tri" name="max_benh_nhan_dieu_tri" value="1" readonly>
+            </div>
+            <button type="submit">Lưu Lịch Hoạt Động</button>
+        </form>
+    </div>
+</body>
+</html>

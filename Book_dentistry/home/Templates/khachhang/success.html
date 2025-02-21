@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Thành Công</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Đường dẫn đến file CSS nếu có -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #28a745;
+        }
+        p {
+            margin: 20px 0;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Đăng Ký Thành Công!</h1>
+    <p>Cảm ơn bạn đã đăng ký lịch khám. Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.</p>
+    <a href="{% url 'home' %}">Quay lại trang chủ</a> <!-- Thay 'home' bằng tên URL bạn muốn -->
+</div>
+
+</body>
+</html>
