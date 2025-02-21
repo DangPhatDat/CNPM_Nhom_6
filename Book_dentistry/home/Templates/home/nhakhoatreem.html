@@ -25,71 +25,6 @@ body {
     padding: 0;
     background-color: #f8f9fa;
 }
-{% comment %} chi tiết {% endcomment %}
-.chitiet {
-    display: flex;
-    flex-direction: row; /* Xếp theo chiều ngang */
-    flex-wrap: nowrap; /* Ngăn không cho xuống hàng */
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 20px; /* Khoảng cách giữa các phần tử */
-    overflow-x: auto; /* Tạo thanh cuộn ngang nếu không đủ chỗ */
-    white-space: nowrap;
-    padding: 40px;
-}
-
-.chitietdau {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    width: 270px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: black;
-    transition: 0.3s;
-    flex-shrink: 0;
-}
-
-.chitietdau img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.chitietdau h4 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #2c3e50;
-}
-
-/* Hiệu ứng hover */
-.chitietdau:hover {
-    transform: scale(1.05);
-}
-
-/* Nút "Xem chi tiết" */
-.xemchitiet {
-    display: inline-block;
-    padding: 10px 15px;
-    background:rgb(115, 176, 217);
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: 0.3s;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-}
-
-.xemchitiet:hover {
-    background-color: #1c5985;
-}
 
 {% comment %} trẻ em {% endcomment %}
 .treem {
@@ -344,20 +279,13 @@ ul li, ol li {
 <body>
     <!-- Phần thân -->
     <div class="container-xxl">
-        {% comment %} chi tiết đầu {% endcomment %}
-        <div class="chitiet">
-            <div class="chitietdau">
-                <img src="https://nhakhoaparkway.com/wp-content/uploads/2023/10/14-tuo%CC%82%CC%89i-nho%CC%82%CC%89-ra%CC%86ng-su%CC%9B%CC%83a-co%CC%81-mo%CC%A3c-la%CC%A3i-kho%CC%82ng_-Nha-khoa-gia%CC%89i-da%CC%81p.jpg.webp" alt="Niềng răng trẻ em">
-                <h4>Niềng răng trẻ em</h4>
-                <a href="#" class="xemchitiet">Xem chi tiết</a>
-            </div>
-        </div>
+       
         {% comment %} trẻ em {% endcomment %}
         <header class="treem">
             <h1>Nha Khoa Trẻ Em</h1>
             <nav>
                 <ul id"sort">
-                    <li><a href="#">Tất cả</a></li>
+                   
                     <li><a href="#">Giá từ cao xuống thấp</a></li>
                     <li><a href="#">Giá từ thấp đến cao</a></li>
                 </ul>
