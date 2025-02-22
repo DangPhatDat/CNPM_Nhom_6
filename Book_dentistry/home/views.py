@@ -272,6 +272,20 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import UserProfile
+# chan truy cap sai quyen
+def role_required(allowed_roles):
+    def decorator(view_func):
+        def wrapper(request, *args, **kwargs):
+            if request.user.is_authenticated:
+                if request.user.userprofile.role in allowed_roles:
+                    return view_func(request, *args, **kwargs)
+            return HttpResponseForbidden("Bạn không có quyền truy cập trang này.")
+        return wrapper
+    return decorator
+#sai quyen ra
+@role_required(['dentist', 'admin'])
+def manage_appointments(request):
+    return render(request, '/home/uudai.html') #thử vào trang uu dai
 
 def register(request):
     if request.method == 'POST':
@@ -281,28 +295,56 @@ def register(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm-password')
 
-        # Kiểm tra mật khẩu
         if password != confirm_password:
             messages.error(request, "Mật khẩu không khớp.")
             return redirect('register')
 
-        # Kiểm tra xem email đã tồn tại chưa
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email đã được sử dụng.")
             return redirect('register')
 
-        # Tạo người dùng mới
-        user = User.objects.create_user(username=email, password=password, email=email)
+        # Tạo tài khoản User
+        user = User.objects.create_user(username=email, email=email, password=password)
         user.save()
 
-        # Tạo hồ sơ người dùng
-        user_profile = UserProfile(user=user, name=name, phone=phone, email=email)
+        # Tạo UserProfile với vai trò mặc định là "Khách hàng"
+        user_profile = UserProfile(user=user, name=name, phone=phone, email=email, role='customer')
         user_profile.save()
 
-        messages.success(request, "Đăng ký thành công!")
-        return redirect('dangnhap')  # Chuyển hướng đến trang đăng nhập hoặc trang khác
+        messages.success(request, "Đăng ký thành công! Vui lòng đăng nhập.")
+        return redirect('dangnhap')
 
     return render(request, 'dangky.html')
+# def register(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         phone = request.POST.get('phone')
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
+#         confirm_password = request.POST.get('confirm-password')
+
+#         # Kiểm tra mật khẩu
+#         if password != confirm_password:
+#             messages.error(request, "Mật khẩu không khớp.")
+#             return redirect('register')
+
+#         # Kiểm tra xem email đã tồn tại chưa
+#         if User.objects.filter(email=email).exists():
+#             messages.error(request, "Email đã được sử dụng.")
+#             return redirect('register')
+
+#         # Tạo người dùng mới
+#         user = User.objects.create_user(username=email, password=password, email=email)
+#         user.save()
+
+#         # Tạo hồ sơ người dùng
+#         user_profile = UserProfile(user=user, name=name, phone=phone, email=email)
+#         user_profile.save()
+
+#         messages.success(request, "Đăng ký thành công!")
+#         return redirect('dangnhap')  # Chuyển hướng đến trang đăng nhập hoặc trang khác
+
+#     return render(request, 'dangky.html')
 
 
 from django.shortcuts import render, redirect

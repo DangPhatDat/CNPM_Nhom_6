@@ -79,12 +79,7 @@ WSGI_APPLICATION = 'Book_dentistry.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'Book_dentistry',
-		'USER': 'root',
-		'PASSWORD': 'root',
-		'HOST':'localhost',
-		'PORT':'3306',
+		
         'ENGINE': 'django.db.backends.sqlite3',  # Sử dụng SQLite
         'NAME': BASE_DIR / "db.sqlite3",  # Tên tệp cơ sở dữ liệu
 	}

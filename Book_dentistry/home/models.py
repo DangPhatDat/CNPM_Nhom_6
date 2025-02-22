@@ -5,15 +5,6 @@ from django.db import models
 
 class Dentistry:
     def __init__(self, name, address, contact_number, services):
-        """
-        Khởi tạo đối tượng Dentistry.
-        
-        Args:
-            name (str): Tên phòng khám nha khoa.
-            address (str): Địa chỉ phòng khám nha khoa.
-            contact_number (str): Số điện thoại liên hệ.
-            services (list): Danh sách các dịch vụ mà phòng khám cung cấp.
-        """
         self.name = name
         self.address = address
         self.contact_number = contact_number
@@ -63,13 +54,28 @@ from django.utils import timezone
 from datetime import timedelta
 
 class UserProfile(models.Model):
+    ROLE_CHOICES = [
+        ('customer', 'Khách hàng'),
+        ('dentist', 'Nha sĩ'),
+        ('admin', 'Quản lý'),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)  # Trường để lưu họ và tên
-    phone = models.CharField(max_length=15, blank=True, null=True)  # Trường để lưu số điện thoại
-    email = models.EmailField(blank=True, null=True)  # Trường để lưu email (có thể để trống)
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='customer')  # Mặc định là khách hàng
 
     def __str__(self):
-        return self.name  # Trả về tên người dùng khi gọi đối tượng UserProfile
+        return f"{self.name} - {self.get_role_display()}"
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)  # Trường để lưu họ và tên
+#     phone = models.CharField(max_length=15, blank=True, null=True)  # Trường để lưu số điện thoại
+#     email = models.EmailField(blank=True, null=True)  # Trường để lưu email (có thể để trống)
+
+#     def __str__(self):
+#         return self.name  # Trả về tên người dùng khi gọi đối tượng UserProfile
 
 class Doctor(models.Model):
     name = models.CharField(max_length=100)
