@@ -1,0 +1,542 @@
+{% extends "master.html" %}
+
+{%block header%}
+    {% include '../includes/header.html' %}
+{%endblock%}
+
+{%block container%} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+         /* Phần thân /
+.container-xxl {
+    flex: 1; / Chiếm không gian còn lại /
+     padding: 20px; / Khoảng cách cho nội dung */
+}
+{% comment %} thẩm mỹ {% endcomment %}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+.thammy {
+    background-color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Đảm bảo các mục có cùng chiều cao */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px 15px;
+}
+ .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.service-section {
+    padding: 40px 20px;
+}
+
+.service-box {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 270px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+}
+
+/* Ảnh dịch vụ */
+.service-box img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.category {
+    display: inline-block;
+    background-color: #f3f3f3;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+.price {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 16px;
+}
+
+
+.detail-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    background: #1c5985;
+}
+ {% comment %} Phần nội dung {% endcomment %}
+section {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+} 
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 10px;
+}
+
+
+{% comment %} phần lý do {% endcomment %}
+.thammy3{
+    font-family: Arial, sans-serif;
+    text-align: center;
+} 
+.thammy3 {
+    max-width: 900px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.tieudelydo{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color:rgb(24, 134, 243);
+}
+.box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.box img {
+    width: 100%;
+    border-radius: 10px;
+}
+.box h3 {
+    color: #2d2a86;
+    margin-top: 10px;
+}
+.box p {
+    color: #333;
+    font-size: 14px;
+}
+{% comment %} javascript {% endcomment %}
+.active {
+    background-color:rgb(98, 142, 218);  /* Green background for active button */
+    color: white;  /* White text for active button */
+    font-weight: bold;  /* Make text bold */
+}
+{% comment %} phan hidden {% endcomment %}
+.hidden {
+    display: none !important;
+}
+.hidden-container {
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    position: relative;
+}
+.hidden-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.hidden-details img {
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.info {
+    flex: 1;
+}
+
+.hidden-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.detail-btn.back-btn {
+    position: absolute;
+    bottom: 15px; /* Cách đáy container 15px */
+    right: 15px; /* Cách mép phải container 15px */
+    background: #f8d7da; /* Màu đỏ nhạt */
+    color:#721c24; /* Màu chữ đỏ đậm */
+    font-size: 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 25px; /* Bo tròn góc */
+}
+
+.detail-btn.back-btn:hover {
+    background: #f1b0b7; /* Đổi sang màu hồng nhạt khi hover */
+    color: #721c24; /* Màu chữ không đổi để dễ đọc */
+}
+ 
+    </style>
+</head>
+<body>
+    <!-- Phần thân -->
+    <div class="container-xxl">
+        {% comment %} Thẩm mỹ {% endcomment %}
+        <header class="thammy">
+            <h1>Nha Khoa Thẩm Mỹ</h1>
+            <nav>
+                <ul id="sort">
+                    <li><a href="#">Giá từ cao xuống thấp</a></li>
+                    <li><a href="#">Giá từ thấp đến cao</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="product-list" class="product-grid">
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/dan-su-veneer-lisi.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Dán sứ veneer Lisi thẩm mỹ
+                    </h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">6.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
+                </div>
+    
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/03/Di%CC%A3ch-vu%CC%A3-da%CC%81n-su%CC%9B%CC%81-veneer-Lisi-tha%CC%82%CC%89m-my%CC%83-BH-5-na%CC%86m.jpeg.webp" alt="">
+                    <h4 class="product-title">Răng sứ Lisi thẩm mỹ
+                    </h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">6.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/su-veneer-emax-.jpg" alt="">
+                    <h4 class="product-title">Inlay/ Onlay</h4>
+                    <p class="category">Gói Zen – Dán sứ veneer Emax thẩm mỹ
+                    </p>
+                    <p class="price">4.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/rang-su-lisi-tham-my.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Răng sứ Lisi thẩm mỹ</h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">5.000.000đ - 5.000.002đ
+
+                    </p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/rang-su-emax-tham-my.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Răng sứ Emax thẩm mỹ
+                    </h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">4.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)">Xem chi tiết</a>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/rang-su-Zircad-Prime.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Răng sứ Zircad Prime/ Lava</h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">6.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/rang-su-Cercon.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Răng sứ Cercon/ Nacera/ Cercon HT/ Zorlid Ceramill</h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">4.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+                </div>
+                <div class="service-box">
+                    <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/10/rang-su-Zirconia.jpg" alt="">
+                    <h4 class="product-title">Gói Zen – Răng sứ Zirconia DMax/ DDBIO</h4>
+                    <p class="category">Nha khoa thẩm mỹ</p>
+                    <p class="price">2.999.998đ - 3.000.000đ</p>
+                    <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+                </div>
+            
+            <div class="service-box">
+                <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/09/Screen-Shot-2024-09-19-at-10.25.10.jpg" alt="">
+                <h4 class="product-title">Gói Zen – Răng sứ Zirconia DMax/ DDBIO</h4>
+                <p class="category">Nha khoa thẩm mỹ</p>
+                <p class="price">2.999.998đ - 3.000.000đ</p>
+                <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+            </div>
+            <div class="service-box">
+                <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/03/Di%CC%A3ch-vu%CC%A3-bo%CC%A3c-su%CC%9B%CC%81-chu%CC%A3p-su%CC%9B%CC%81-Zirconia-DMax-DDBIO.jpeg.webp" alt="">
+                <h4 class="product-title">Răng sứ Zirconia DMax/ DDBIO</h4>
+                <p class="category">Nha khoa thẩm mỹ</p>
+                <p class="price">3.000.000đ</p>
+                <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+            </div>
+            <div class="service-box">
+                <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Di%CC%A3ch-vu%CC%A3-tra%CC%81m-ra%CC%86ng-ba%CC%86%CC%80ng-su%CC%9B%CC%81-Emax-Inlay_onlay-BH-5-na%CC%86m.jpeg.webp" alt="">
+                <h4 class="product-title">Inlay/ Onlay
+                </h4>
+                <p class="category">Nha khoa thẩm mỹ</p>
+                <p class="price">2.700.000đ - 5.300.000đ</p>
+                <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+            </div>
+            <div class="service-box">
+                <img src="https://nhakhoaparkway.com/wp-content/uploads/2024/02/Di%CC%A3ch-vu%CC%A3-ha%CC%80n-tra%CC%81m-ra%CC%86ng-tha%CC%82%CC%89m-my%CC%83-do%CC%81ng-ki%CC%81n-khe-ho%CC%9B%CC%89-ra%CC%86ng-cu%CC%9B%CC%89a-phu%CC%A3c-hi%CC%80nh-ra%CC%86ng-cu%CC%9B%CC%89a-me%CC%89-go%CC%81c.jpeg.webp"">
+                <h4 class="product-title">Trám răng thẩm mỹ</p>
+                </h4>
+                <p class="category">Nha khoa thẩm mỹ</p>
+                <p class="price">400.000đ - 500.000đ</p>
+                <a href="#" class="detail-btn" onclick="showDetail(this)" >Xem chi tiết</a>
+            </div>
+        </section >
+            <!-- Chi tiết sản phẩm (Ẩn mặc định) -->
+            <section id="product-detail" class="hidden">
+                <div class="hidden-container">  
+                    <h2 id="detail-title"></h2>
+                    <div class="hidden-details">
+                        <img id="hidden-detail img" src="" alt="Sản phẩm">
+                        <div class="info">
+                            <span  id="hidden-price" class="price"></span>
+                            <p><strong>Dịch vụ:</strong> Nha khoa thẩm mỹ</p>
+                             <a href="datlich" class="detail-btn"> Đặt lịch ngay</a> 
+                             <button class="detail-btn back-btn" onclick="backToList()">Quay lại</button>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        </main>  
+        {% comment %} Phần nội dung {% endcomment %}
+        <section>
+            <h2>Nha khoa thẩm mỹ là gì?</h2>
+            <p>Nha khoa thẩm mỹ là một chuyên khoa trong răng hàm mặt, đóng vai trò cải thiện tính thẩm mỹ và sức khỏe cho răng, hàm của bệnh nhân được tốt hơn. Việc sở hữu một hàm răng trắng, đều sẽ giúp mang lại sự tự tin trong giao tiếp cho mỗi người, từ đó nâng cao chất lượng cuộc sống và gặp nhiều thuận lợi hơn trong công việc.</p>
+            <p>Hiện nay, có rất nhiều phương pháp nha khoa thẩm mỹ, nổi bật nhất phải kể đến như: trám răng, tẩy trắng răng, lấy cao răng, bọc sứ, veneer, tạo hình đường lợi,… mỗi phương pháp đều có những ưu và nhược điểm riêng, tuy nhiên hiệu quả mang đến lại vô cùng cao.</p>
+        </section>
+        <section >
+            <h2>Lợi ích của nha khoa thẩm mỹ</h2>
+            <ul>
+                <li><b>Cải thiện vẻ bề ngoài:</b> Quy trình nha khoa thẩm mỹ giúp khắc phục hầu hết các khuyết điểm về răng hàm, từ đó giúp cải thiện ngoại hình một cách đáng kể.</li>
+                <li><b>Tăng cường sức khỏe răng miệng:</b> Các quy trình nha khoa thẩm mỹ giúp chống lại các vấn đề răng miệng, bệnh về xương và nướu, tăng cường sức khỏe răng miệng tổng thể.</li>
+                <li><b>Thời gian hồi phục nhanh chóng:</b> Các thủ thuật nha khoa thẩm mỹ cần rất ít thời gian để hồi phục hoàn toàn, giúp bệnh nhân có thể tiếp tục ăn uống như bình thường chỉ trong vòng vài ngày.</li>
+            </ul>
+        </section>
+        
+        <section >
+            <h2>Các dịch vụ nha khoa thẩm mỹ tại Parkway</h2>
+            <ul>
+                <li>Răng sứ</li>
+                <li>Dán sứ veneer</li>
+                <li>Inlay/Onlay sứ</li>
+                <li>Trám Sealant</li>
+                <li>Bôi Flouride</li>
+                <li>Lấy cao răng</li>
+                <li>Tiểu phẫu tạo hình đường lợi</li>
+                <li>Tẩy trắng tiêu chuẩn Zoom Laser</li>
+                <li>Tẩy trắng răng cấp tốc Express</li>
+            </ul>
+        </section>
+        
+        <section >
+            <h2>Vì sao nên lựa chọn khám nha khoa tổng quát tại Parkway?</h2>
+            <p>Nha Khoa Parkway mang đến các giải pháp nha khoa thẩm mỹ hàng đầu, từ bọc răng sứ, trám răng, đến tẩy trắng răng, mỗi dịch vụ được thiết kế để khơi dậy nụ cười xinh đẹp nhất của bạn.</p>
+            <p>Lựa chọn khám nha khoa tổng quát tại Parkway khách hàng sẽ luôn cảm thấy hài lòng bởi:</p>
+            <ul>
+                <li>Parkway luôn đặt lợi ích sức khỏe của khách hàng lên hàng đầu.</li>
+                <li>Miễn phí khám, nhận phác đồ điều trị và chụp phim.</li>
+                <li>Cơ sở vật chất hiện đại, trang thiết bị tối tân.</li>
+                <li>Mỗi bác sĩ sẽ theo dõi khách hàng xuyên suốt quá trình điều trị.</li>
+                <li>Đối tác chiến lược của hãng niềng răng trong suốt Invisalign và Clear Correct.</li>
+                <li>Báo giá trọn gói, minh bạch, không phát sinh chi phí trong quá trình điều trị.</li>
+                <li>Có hợp đồng cam kết hiệu quả điều trị rõ ràng.</li>
+                <li>Gặp gỡ đội ngũ bác sĩ răng hàm mặt giàu kinh nghiệm.</li>
+                <li>Hệ thống phòng khám rộng khắp cả nước.</li>
+                <li>Nha khoa Parkway là chuỗi hệ thống nha khoa chuyên môn cao với chuỗi phòng khám toàn quốc, đạt nhiều thành tích về chỉnh nha và implant, tận tuỵ với triết lý điều trị chăm sóc nụ cười khỏe đẹp từ gốc, ưu tiên sức khoẻ khách hàng.</li>
+            </ul>
+
+        </section>
+        {% comment %} Phần lý do {% endcomment %}
+        <h4 class="tieudelydo">6 lý do nên chọn Parkway</h4>
+    <div class="thammy3">
+        <div class="box">
+            <img src="clinic.jpg" alt="Chuỗi phòng khám">
+            <h3>Chuỗi phòng khám <br>toàn quốc</h3>
+            
+        </div>
+        <div class="box">
+            <img src="experts.jpg" alt="Chuyên gia hàng đầu">
+            <h3>Thăm khám cùng<br> chuyên gia hàng đầu</h3>
+        </div>
+        <div class="box">
+            <img src="trust.jpg" alt="Khách hàng tin tưởng">
+            <h3>61.000+ <br>khách hàng tin tưởng</h3>
+            
+        </div>
+        <div class="box">
+            <img src="partners.jpg" alt="Đối tác chiến lược">
+            <h3>Đối tác chiến lược<br> của nhiều tập đoàn nha khoa</h3>
+            
+        </div>
+        <div class="box">
+            <img src="pricing.jpg" alt="Báo giá minh bạch">
+            <h3>Báo giá trọn gói,<br>minh bạch</h3>
+            
+        </div>
+        <div class="box">
+            <img src="contract.jpg" alt="Hợp đồng cam kết">
+            <h3>Đảm bảo bằng <br>hợp đồng cam kết</h3>
+        </div>
+    </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sortAscBtn = document.querySelector("nav ul li:nth-child(2) a"); // Giá từ thấp đến cao
+            const sortDescBtn = document.querySelector("nav ul li:nth-child(1) a"); // Giá từ cao xuống thấp
+            const productGrid = document.querySelector(".product-grid");
+        
+            function parsePrice(priceText) {
+                return parseInt(priceText.replace(/\./g, "").replace("đ", ""));
+            }
+        
+            function sortProducts(ascending) {
+                let products = Array.from(document.querySelectorAll(".service-box"));
+        
+                products.sort((a, b) => {
+                    let priceA = parsePrice(a.querySelector(".price").textContent);
+                    let priceB = parsePrice(b.querySelector(".price").textContent);
+                    return ascending ? priceA - priceB : priceB - priceA;
+                });
+        
+                products.forEach(product => productGrid.appendChild(product));
+            }
+        
+            function updateActiveButton(button) {
+                // Remove active class from both buttons
+                sortAscBtn.classList.remove("active");
+                sortDescBtn.classList.remove("active");
+        
+                // Add active class to the clicked button
+                button.classList.add("active");
+            }
+        
+            sortAscBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                sortProducts(true);
+                updateActiveButton(sortAscBtn);
+            });
+        
+            sortDescBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                sortProducts(false);
+                updateActiveButton(sortDescBtn);
+            });
+        });
+        
+         // pop up
+        
+         function showDetail(element) {
+            // Lấy thông tin từ phần tử được nhấn vào
+            const imgSrc = element.parentElement.querySelector("img").src;
+            const title = element.parentElement.querySelector(".product-title").innerText;
+            const price = element.parentElement.querySelector(".price").innerText;
+        
+            // Cập nhật nội dung chi tiết
+            document.getElementById("hidden-detail img").src = imgSrc;
+            document.getElementById("detail-title").innerText = title;
+            document.getElementById("hidden-price").innerText = price;
+        
+            // Ẩn danh sách sản phẩm, hiện chi tiết sản phẩm
+            document.getElementById("product-list").classList.add("hidden");
+            document.getElementById("product-detail").classList.remove("hidden");
+            document.getElementById("sort").classList.add("hidden");
+        }
+        
+        function backToList() {
+            // Hiện danh sách sản phẩm, ẩn chi tiết sản phẩm
+            document.getElementById("product-list").classList.remove("hidden");
+            document.getElementById("sort").classList.remove("hidden");
+            document.getElementById("product-detail").classList.add("hidden");
+        }
+    </script>
+</body>
+</html>
+{%endblock%}
+{%block footer%}
+    {% include '../includes/footer.html' %}
+{%endblock%}
