@@ -172,6 +172,16 @@ def uudai(request):
     }
     return HttpResponse (template.render(context, request))
 
+def vaotrangchu(request):
+    if request.method == "POST":
+        pass
+
+    template = loader.get_template('home/vaotrangchu.html')
+    context = {
+
+    }
+    return HttpResponse (template.render(context, request))
+
 def dkphongkham(request):
     if request.method == "POST":
         pass
@@ -442,3 +452,5 @@ def success_page(request):
 
     }
     return HttpResponse (template.render(context, request))
+
+

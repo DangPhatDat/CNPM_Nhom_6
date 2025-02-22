@@ -31,4 +31,6 @@ urlpatterns = [
     path('dkphongkham/', views.dkphongkham, name='dkphongkham'),
     path('dklichkham/', views.dklichkham, name='dklichkham'),  # Đổi tên thành dklichkham
     path('success/', views.success_page, name='success_page'),
+    path('vaotrangchu', views.vaotrangchu, name='vaotrangchu'),
+    
 ]
