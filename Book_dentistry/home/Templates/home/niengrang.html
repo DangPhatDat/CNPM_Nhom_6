@@ -488,31 +488,41 @@ ul li, ol li {
                 updateActiveButton(sortDescBtn);
             });
         });
-        // pop up
-        
-        function showDetail(element) {
-            // Lấy thông tin từ phần tử được nhấn vào
-            const imgSrc = element.parentElement.querySelector("img").src;
-            const title = element.parentElement.querySelector(".product-title").innerText;
-            const price = element.parentElement.querySelector(".price").innerText;
-        
-            // Cập nhật nội dung chi tiết
-            document.getElementById("hidden-detail img").src = imgSrc;
-            document.getElementById("detail-title").innerText = title;
-            document.getElementById("hidden-price").innerText = price;
-        
-            // Ẩn danh sách sản phẩm, hiện chi tiết sản phẩm
-            document.getElementById("product-list").classList.add("hidden");
-            document.getElementById("product-detail").classList.remove("hidden");
-            document.getElementById("sort").classList.add("hidden");
-        }
-        
-        function backToList() {
-            // Hiện danh sách sản phẩm, ẩn chi tiết sản phẩm
-            document.getElementById("product-list").classList.remove("hidden");
-            document.getElementById("sort").classList.remove("hidden");
-            document.getElementById("product-detail").classList.add("hidden");
-        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const detailSection = document.getElementById("product-detail");
+            const detailTitle = document.getElementById("detail-title");
+            const detailImage = document.getElementById("hidden-detail img");
+            const detailPrice = document.getElementById("hidden-price");
+            const productList = document.querySelector(".product-grid");
+            const detailButtons = document.querySelectorAll(".detail-btn");
+            
+            // Thêm sự kiện click cho mỗi nút "Xem chi tiết"
+            detailButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    
+                    const serviceBox = this.closest(".service-box");
+                    const title = serviceBox.querySelector("h4").innerText;
+                    const imageSrc = serviceBox.querySelector("img").src;
+                    const price = serviceBox.querySelector(".price").innerText;
+                    
+                    detailTitle.innerText = title;
+                    detailImage.src = imageSrc;
+                    detailPrice.innerText = price;
+                    
+                    detailSection.classList.remove("hidden");
+                    productList.classList.add("hidden");
+                });
+            });
+            
+            // Quay lại danh sách sản phẩm
+            window.backToList = function () {
+                detailSection.classList.add("hidden");
+                productList.classList.remove("hidden");
+            };
+        });
     </script>
 </body>
 </html>
